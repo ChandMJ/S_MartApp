@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
@@ -9,7 +9,7 @@
     </style>
 
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
-        <!--        <item name="android:windowBackground">@drawable/splash_background</item>-->
+        <item name="android:windowBackground">@drawable/splash_background</item>
     </style>
 
     <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
@@ -24,7 +24,7 @@
     </style>
 
     <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
-        <!--        <item name="android:background">@drawable/rounded_dialog</item>-->
+        <item name="android:background">@drawable/rounded_dialog</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -47,28 +47,28 @@
 
     <style name="AppTheme.GenderChip" parent="TextAppearance.MaterialComponents.Chip">
         <item name="android:textSize">13dp</item>
-        <!--        <item name="fontFamily">@font/roboto_medium</item>-->
+        <item name="fontFamily">@font/roboto_medium</item>
     </style>
 
 
     <style name="tags_theme" parent="TextAppearance.MaterialComponents.Chip">
         <item name="chipCornerRadius">0dp</item>
-        <!--        <item name="fontFamily">@font/roboto_medium</item>-->
+        <item name="fontFamily">@font/roboto_medium</item>
     </style>
 
     <style name="tags_chip" parent="TextAppearance.MaterialComponents.Chip">
 
         <item name="android:textSize">10dp</item>
-        <!--        <item name="android:fontFamily">@font/roboto_medium</item>-->
+        <item name="android:fontFamily">@font/roboto_medium</item>
     </style>
 
-    <!--    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">-->
-    <!--        <item name="colorControlHighlight">@color/light_blue</item>-->
-    <!--    </style>-->
+<!--    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">-->
+<!--        <item name="colorControlHighlight">@color/light_blue</item>-->
+<!--    </style>-->
 
-    <!--    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">-->
-    <!--        <item name="colorControlHighlight">@color/colorAccent</item>-->
-    <!--    </style>-->
+<!--    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">-->
+<!--        <item name="colorControlHighlight">@color/colorAccent</item>-->
+<!--    </style>-->
 
 
 
@@ -79,6 +79,5 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
         <item name="colorControlHighlight">@color/colorAccent</item>
     </style>
-
 
 </resources>

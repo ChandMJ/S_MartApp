@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">S_MartApp</string>
+    <string name="app_name">S Mart</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="title_activity_home_navig">Home_navigActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_chats">Chats</string>
+    <string name="title_sell">Sell</string>
+    <string name="title_fav">Favourites</string>
+    <string name="title_profile">Profile</string>
+    <string name="app_subtitle">SimpleSearchView</string>
 </resources>

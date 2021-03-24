@@ -22,5 +22,6 @@
     <color name="tag_text">#566E76</color>
     <color name="light_gery">#fdfeff</color>
     <color name="chip_color">#B4CCF5</color>
+    <color name="black">#000</color>
 
 </resources>

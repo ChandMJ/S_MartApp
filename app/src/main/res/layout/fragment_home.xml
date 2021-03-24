@@ -6,7 +6,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_background">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -92,6 +93,15 @@
                 app:slideInterval="3000"
                 app:strokeWidth="1dp" />
 
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="@+id/notification"
+                app:layout_constraintTop_toTopOf="@+id/notification"
+                app:srcCompat="@drawable/ic_baseline_brightness_1_24" />
+
             <FrameLayout
                 android:id="@+id/frameLayout3"
                 android:layout_width="match_parent"
@@ -106,11 +116,19 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/roboto_medium"
                     android:textStyle="bold"
-                    android:text="MILK"
+                    android:text="Browse Categories"
                     android:textColor="@color/primary_text_color"
                     android:textSize="15dp" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:paddingRight="10dp"
+                    app:srcCompat="@drawable/ic_baseline_navigate_next_24" />
 
             </FrameLayout>
             <FrameLayout
@@ -197,7 +215,7 @@
                                                 android:layout_width="match_parent"
                                                 android:layout_height="match_parent"
                                                 android:layout_marginBottom="10dp"
-                                                android:fontFamily="@font/roboto"
+                                                android:fontFamily="@font/alice"
                                                 android:text="Milk Packet"
                                                 android:textColor="@color/primary_text_color"
                                                 android:textSize="14dp" />
@@ -263,7 +281,7 @@
                                                 android:layout_width="match_parent"
                                                 android:layout_height="match_parent"
                                                 android:layout_marginBottom="10dp"
-                                                android:fontFamily="@font/roboto"
+                                                android:fontFamily="@font/alice"
                                                 android:text="Milk Tetra Pack"
                                                 android:textColor="@color/primary_text_color"
                                                 android:textSize="14dp" />
@@ -282,24 +300,6 @@
                     </HorizontalScrollView>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </FrameLayout>
-
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:visibility="invisible"
-                app:layout_constraintEnd_toEndOf="@+id/notification"
-                app:layout_constraintTop_toTopOf="@+id/notification"
-                app:srcCompat="@drawable/ic_baseline_brightness_1_24" />
-
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="8dp"
-                android:layout_height="9dp"
-                android:visibility="invisible"
-                app:layout_constraintEnd_toEndOf="@+id/cart"
-                app:layout_constraintTop_toTopOf="@+id/cart"
-                app:srcCompat="@drawable/ic_baseline_brightness_1_24" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

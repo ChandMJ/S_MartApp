@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/layout_whitebg"
+            android:paddingVertical="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/segoe_ui_sb"
+                    android:text="Welcome back."
+
+                    android:textColor="@color/primary_text_color"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/segoe_u_i_bold"
+                    android:text="Login !"
+
+                    android:layout_marginBottom="30dp"
+                    android:textColor="@color/primary_text_color"
+                    android:textSize="30dp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/loginmob"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/edittext_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="Mobile"
+                    android:inputType="phone"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="14dp"
+                    android:paddingRight="15dp"
+                    android:textSize="16sp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/login_pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/phone"
+                    app:layout_constraintTop_toBottomOf="@+id/phone"
+                    app:passwordToggleEnabled="true"
+                    app:hintEnabled="false"
+                    android:layout_marginBottom="10dp">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edittext_bg"
+                        android:ems="10"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="Password"
+                        android:inputType="textPassword"
+                        android:paddingLeft="15dp"
+                        android:paddingTop="8dp"
+                        android:paddingRight="15dp"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/phone"
+                        app:layout_constraintTop_toBottomOf="@+id/phone" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:clickable="true"
+                    android:gravity="right"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Forgot Password ?"
+                    android:textColor="@color/primary_text_color" />
+
+                <Button
+                    android:id="@+id/login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/sign_in_black"
+                    android:fontFamily="@font/segoe_ui_sb"
+                    android:text="LOG IN"
+                    android:textSize="14sp"
+                    android:textColor="@color/white"
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"/>
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>

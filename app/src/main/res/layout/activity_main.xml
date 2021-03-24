@@ -23,8 +23,10 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -46,7 +48,8 @@
             android:padding="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/textView6"
@@ -54,18 +57,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="0dp"
                 android:fontFamily="@font/segoe_u_i_bold"
-                android:text="Welcome!"
-                android:textStyle="italic"
+                android:text="@string/welcome"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                 android:textColor="@color/colorPrimary"
-                android:textSize="30dp" />
+                android:textSize="30dp"
+                android:textStyle="italic" />
 
             <TextView
                 android:id="@+id/textView8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/segoe_ui_sb"
-                android:text="Description"
+                android:text="Start your pocket-friendly student life here!"
                 android:textColor="@color/colorPrimary"
                 android:textSize="18sp" />
 
@@ -80,10 +83,10 @@
                     android:id="@+id/sign_up_wel"
                     android:layout_width="0dp"
                     android:layout_height="38dp"
-                    android:background="@drawable/button_bg_black"
+                    android:background="@drawable/button_bg_white"
                     android:clickable="true"
+                    android:text="LOGIN"
 
-                    android:text="REGISTER"
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -91,12 +94,13 @@
 
                 <Button
                     android:id="@+id/sign_in_wel"
-                    android:layout_width="120dp"
+                    android:layout_width="0dp"
                     android:layout_height="38dp"
                     android:layout_marginStart="20dp"
-                    android:background="@drawable/button_bg_white"
+                    android:background="@drawable/button_bg_black"
                     android:clickable="true"
-                    android:text="LOGIN"
+                    android:text="REGISTER"
+
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/sign_up_wel"

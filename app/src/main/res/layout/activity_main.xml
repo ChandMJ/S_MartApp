@@ -56,7 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="0dp"
-                android:fontFamily="@font/segoe_u_i_bold"
+                android:fontFamily="@font/alice"
                 android:text="@string/welcome"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                 android:textColor="@color/colorPrimary"
@@ -70,7 +70,7 @@
                 android:fontFamily="@font/segoe_ui_sb"
                 android:text="Start your pocket-friendly student life here!"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp" />
+                android:textSize="15sp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"

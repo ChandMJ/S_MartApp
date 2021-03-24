@@ -1,6 +1,7 @@
 package com.example.s_martapp;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -17,6 +18,8 @@ public class HomeActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     MenuItem prevMenuItem;
 
+    String num;
+
     HomeFragment homeFragment;
     ChatFragment chatFragment;
     SellFragment sellFragment;
@@ -29,6 +32,10 @@ public class HomeActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        Intent intent1=getIntent();
+        num=intent1.getStringExtra("Phone");
+
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setOffscreenPageLimit(4);
 
@@ -116,6 +123,10 @@ public class HomeActivity extends AppCompatActivity {
         adapter.addFragment(profileFragment);
 
         viewPager.setAdapter(adapter);
+    }
+
+    public String sendData() {
+        return num;
     }
 
 }

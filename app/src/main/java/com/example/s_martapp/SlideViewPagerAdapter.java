@@ -33,7 +33,7 @@ public class SlideViewPagerAdapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
 
         //LayoutInflater layoutInflater = LayoutInflater.from(context);
-        View view=LayoutInflater.from(context).inflate(R.layout.fragment_onborad1,container,false);
+        View view=LayoutInflater.from(context).inflate(R.layout.fragment_onboard,container,false);
 
         ImageView logo=view.findViewById(R.id.onboard_img1);
         ImageView ind1=view.findViewById(R.id.ind3);

@@ -30,7 +30,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:16.0.4'
     implementation 'com.google.firebase:firebase-auth:16.0.5'
     implementation 'com.google.firebase:firebase-database:16.0.4'
-    implementation 'androidx.gridlayout:gridlayout:1.0.0'
+    implementation 'com.google.firebase:firebase-storage:16.0.4'
+    implementation 'com.google.firebase:firebase-inappmessaging-display:17.0.4'
+    implementation 'androidx.wear:wear:1.1.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
@@ -46,5 +48,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.1.0'
     //carousel
     implementation 'com.synnapps:carouselview:0.1.4'
+    compileOnly 'com.google.android.wearable:wearable:2.8.1'
+
 
 }

@@ -86,7 +86,6 @@ public class ProfileFragment extends Fragment {
 
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
                 {
-                    System.out.println(dataSnapshot1.getKey());
                     if(dataSnapshot1.getKey().equals("name"))
                     {
                         name.setText(dataSnapshot1.getValue().toString());

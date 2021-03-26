@@ -49,8 +49,8 @@ public class HistoryFragment extends Fragment {
         //adapter.addFragment(new Tab3Fragment(), "Tab 3");
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
-
-
-
+    }
+    public String sendData() {
+        return num;
     }
 }

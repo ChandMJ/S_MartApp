@@ -41,6 +41,8 @@ public class ItemdetailsActivity extends AppCompatActivity {
 
     ProgressDialog progressDialog;
 
+    TextView scrolltxt,choosetxt;
+
     int PICK_IMAGE_MULTIPLE = 1;
     String imageEncoded;
     List<String> imagesEncodedList;
@@ -73,6 +75,9 @@ public class ItemdetailsActivity extends AppCompatActivity {
         cat=findViewById(R.id.category);
         price=findViewById(R.id.price);
 
+        scrolltxt=findViewById(R.id.scrolltext);
+        choosetxt=findViewById(R.id.choosetext);
+
         gvGallery = (GridView)findViewById(R.id.gv);
 
         free=findViewById(R.id.checkBox);
@@ -97,16 +102,19 @@ public class ItemdetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if(title.getText().toString().isEmpty()){
+                    title.setError("Give a title");
+                    title.requestFocus();
+                }
+                else {
+                    progressDialog.show();
+                    UplaodImage();
+                    SaveItemDetails();
+                    progressDialog.dismiss();
 
-
-                progressDialog.show();
-                UplaodImage();
-                SaveItemDetails();
-                progressDialog.dismiss();
-
-                Toast.makeText(ItemdetailsActivity.this,"Your ad is successfully added!",Toast.LENGTH_LONG).show();
-                onBackPressed();
-
+                    Toast.makeText(ItemdetailsActivity.this, "Your ad is successfully added!", Toast.LENGTH_LONG).show();
+                    onBackPressed();
+                }
             }
         });
 
@@ -177,14 +185,15 @@ public class ItemdetailsActivity extends AppCompatActivity {
                     ImageName.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
+                            System.out.println("Enter"+uri);
                             String url = String.valueOf(uri);
-
                             StoreLink(url);
                         }
                     });
                 }
             });
 
+            System.out.println("Not successful");
         }
     }
 
@@ -250,7 +259,12 @@ public class ItemdetailsActivity extends AppCompatActivity {
                         Log.v("LOG_TAG", "Selected Images" + mArrayUri.size());
                     }
                 }
-            } else {
+                scrolltxt.setVisibility(View.VISIBLE);
+                choosetxt.setVisibility(View.GONE);
+                camera.setVisibility(View.GONE);
+
+            }
+            else {
                 Toast.makeText(this, "You haven't picked Image",
                         Toast.LENGTH_LONG).show();
             }

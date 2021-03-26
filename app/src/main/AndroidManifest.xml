@@ -2,7 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.s_martapp">
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-feature android:name="android.hardware.type.watch" />
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -11,20 +16,38 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
+        <uses-library
+            android:name="com.google.android.wearable"
+            android:required="true" />
+
+        <!--
+               Set to true if your app is Standalone, that is, it does not require the handheld
+               app to run.
+        -->
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
+
+        <activity
+            android:name=".ImagesGalleryActivity"
+            android:label="@string/title_activity_images_gallery">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ParticularAdActivity"></activity>
         <activity
             android:name=".SearchhomeActivity"
-            android:label="@string/title_activity_searchhome">
-        </activity>
+            android:label="@string/title_activity_searchhome" />
         <activity
             android:name=".Browse_cat"
-            android:label="@string/title_activity_browse_cat">
-        </activity>
+            android:label="@string/title_activity_browse_cat" />
         <activity
             android:name=".ItemdetailsActivity"
-            android:label="@string/title_activity_itemdetails">
-        </activity>
-        <activity android:name=".MainActivity">
-        </activity>
+            android:label="@string/title_activity_itemdetails" />
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">
@@ -37,11 +60,10 @@
         <activity
             android:name=".HomeActivity"
             android:label="Home Activity" />
-        <activity android:name=".UpdateProfile"/>
-        <activity android:name=".UpdatePassword"/>
-        <activity android:name=".ForgotPassworActivity"/>
-        <activity android:name=".ChangeCol"/>
-
+        <activity android:name=".UpdateProfile" />
+        <activity android:name=".UpdatePassword" />
+        <activity android:name=".ForgotPassworActivity" />
+        <activity android:name=".ChangeCol" />
 
         <meta-data
             android:name="preloaded_fonts"

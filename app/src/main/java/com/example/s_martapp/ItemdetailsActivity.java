@@ -97,6 +97,8 @@ public class ItemdetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
+
                 progressDialog.show();
                 UplaodImage();
                 SaveItemDetails();
@@ -139,15 +141,16 @@ public class ItemdetailsActivity extends AppCompatActivity {
             databaseReference1.child("Donate").setValue("Yes");
         }
 
-        databaseReference.child("Title").setValue(title);
-        databaseReference.child("Desc").setValue(desc);
+        databaseReference.child("Title").setValue(title.getText().toString());
+        databaseReference.child("Desc").setValue(desc.getText().toString());
         databaseReference.child("Date").setValue(currentdate);
-        databaseReference.child("Price").setValue(price);
+        databaseReference.child("Price").setValue(price.getText().toString());
 
-        databaseReference1.child("Title").setValue(title);
-        databaseReference1.child("Desc").setValue(desc);
+        databaseReference1.child("Title").setValue(title.getText().toString());
+        databaseReference1.child("Desc").setValue(desc.getText().toString());
         databaseReference1.child("Date").setValue(currentdate);
-        databaseReference1.child("Price").setValue(price);
+        databaseReference1.child("Price").setValue(price.getText().toString());
+        databaseReference1.child("User").setValue(num);
 
     }
 

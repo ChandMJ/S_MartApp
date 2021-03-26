@@ -45,7 +45,7 @@ public class SearchhomeActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView parent, View view, int position, long id) {
                 String[] splitted = (""+list.get(position)).split(" ");
-                System.out.println(splitted[0]+"   "+splitted[1]);
+                System.out.println(splitted[0]+"   ");
 //                if(splitted[2] .equals("Pouch") ){
 //                    Intent i=new Intent(SearchhomeActivity.this,MilkActivity.class);
 //                    i.putExtra("content","0");

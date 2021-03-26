@@ -17,13 +17,20 @@
         app:popupTheme="@style/AppTheme.PopupOverlay"
         app:title="  Profile" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <LinearLayout
         android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:orientation="vertical"
-        android:padding="20dp"
+        android:paddingBottom="90dp"
+        android:paddingTop="20dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -57,10 +64,10 @@
                         android:id="@+id/textView154"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/roboto_regular"
+                        android:fontFamily="@font/roboto_bold"
                         android:gravity="left"
                         android:text="Profile Details"
-                        android:textColor="@color/non_editable_text"
+                        android:textColor="@color/black"
                         android:textSize="18dp" />
 
                     <TextView
@@ -145,10 +152,10 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/roboto_regular"
+                        android:fontFamily="@font/roboto_bold"
                         android:gravity="left"
                         android:text="College Details"
-                        android:textColor="@color/non_editable_text"
+                        android:textColor="@color/black"
                         android:textSize="18dp" />
 
                     <TextView
@@ -244,10 +251,10 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/roboto_regular"
+                        android:fontFamily="@font/roboto_bold"
                         android:gravity="left"
                         android:text="Password"
-                        android:textColor="@color/non_editable_text"
+                        android:textColor="@color/black"
                         android:textSize="18dp" />
 
                     <TextView
@@ -286,5 +293,7 @@
 
         </androidx.cardview.widget.CardView>
     </LinearLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

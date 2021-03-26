@@ -50,15 +50,15 @@ public class ChangeCol extends AppCompatActivity {
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
                 {
                     System.out.println(dataSnapshot1.getKey());
-                    if(dataSnapshot1.getKey().equals("Semester"))
+                    if(dataSnapshot1.getKey().equals("semester"))
                     {
                         sem.setText(dataSnapshot1.getValue().toString());
                     }
-                    if(dataSnapshot1.getKey().equals("Branch"))
+                    if(dataSnapshot1.getKey().equals("branch"))
                     {
                         branch.setText(dataSnapshot1.getValue().toString());
                     }
-                    if(dataSnapshot1.getKey().equals("Hostel"))
+                    if(dataSnapshot1.getKey().equals("hostel"))
                     {
                         hostel.setText(dataSnapshot1.getValue().toString());
                     }
@@ -90,11 +90,11 @@ public class ChangeCol extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                                    ref.child("Semester").setValue(sem.getText().toString());
-                                    ref.child("Branch").setValue(branch.getText().toString());
-                                    ref.child("Hostel").setValue(hostel.getText().toString());
+                                    ref.child("semester").setValue(sem.getText().toString());
+                                    ref.child("branch").setValue(branch.getText().toString());
+                                    ref.child("hostel").setValue(hostel.getText().toString());
 
-                            Toast.makeText(ChangeCol.this, "Address Update Successful!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(ChangeCol.this, "Details Update Successful!", Toast.LENGTH_LONG).show();
                             onBackPressed();
                         }
 

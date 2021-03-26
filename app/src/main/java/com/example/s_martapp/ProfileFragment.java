@@ -1,8 +1,12 @@
 package com.example.s_martapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -25,6 +29,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class ProfileFragment extends Fragment {
 
     TextView change_prof,chang_pass,chan_col;
@@ -36,6 +42,7 @@ public class ProfileFragment extends Fragment {
     FirebaseDatabase database=FirebaseDatabase.getInstance();
     DatabaseReference ref;
 
+    SharedPreferences sharedPreferences;
 
     public ProfileFragment() {
     }
@@ -54,9 +61,12 @@ public class ProfileFragment extends Fragment {
         HomeActivity activity = (HomeActivity) getActivity();
         num = activity.sendData();
 
+        sharedPreferences= getActivity().getSharedPreferences("login",MODE_PRIVATE);
+
         name=view.findViewById(R.id.textView153);
         mob=view.findViewById(R.id.numb);
         email=view.findViewById(R.id.mail);
+
 
         branch=view.findViewById(R.id.branch);
         sem=view.findViewById(R.id.sem);
@@ -137,5 +147,32 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.settings_menu,menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id=item.getItemId();
+        if(id== R.id.logout){
+            FirebaseAuth.getInstance().signOut();
+            SharedPreferences.Editor editor= getActivity().getApplication().getSharedPreferences("login",MODE_PRIVATE).edit();
+            editor.putBoolean("Flag",false);
+            editor.commit();
+            Intent intent3=new Intent(getActivity(),MainActivity.class);
+            startActivity(intent3);
+            getActivity().finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -13,5 +13,13 @@
     <string name="title_profile">Profile</string>
     <string name="app_subtitle">SimpleSearchView</string>
     <string name="welcome">Welcome to Smart</string>
+    <string name="title_activity_itemdetails">ItemdetailsActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="title_activity_browse_cat">Browse_cat</string>
+    <string name="title_activity_searchhome">SearchhomeActivity</string>
 
 </resources>

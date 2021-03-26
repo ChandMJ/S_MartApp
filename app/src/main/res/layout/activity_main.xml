@@ -67,10 +67,10 @@
                 android:id="@+id/textView8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/segoe_ui_sb"
+                android:fontFamily="@font/roboto_regular"
                 android:text="Start your pocket-friendly student life here!"
                 android:textColor="@color/colorPrimary"
-                android:textSize="15sp" />
+                android:textSize="14sp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -80,7 +80,7 @@
                 android:paddingBottom="5dp">
 
                 <Button
-                    android:id="@+id/sign_up_wel"
+                    android:id="@+id/sign_in_wel"
                     android:layout_width="0dp"
                     android:layout_height="38dp"
                     android:background="@drawable/button_bg_white"
@@ -93,7 +93,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <Button
-                    android:id="@+id/sign_in_wel"
+                    android:id="@+id/sign_up_wel"
                     android:layout_width="0dp"
                     android:layout_height="38dp"
                     android:layout_marginStart="20dp"
@@ -103,7 +103,7 @@
 
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/sign_up_wel"
+                    app:layout_constraintStart_toEndOf="@+id/sign_in_wel"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="1.0" />
             </androidx.constraintlayout.widget.ConstraintLayout>

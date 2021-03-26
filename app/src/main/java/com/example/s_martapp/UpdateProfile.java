@@ -50,15 +50,15 @@ public class UpdateProfile extends AppCompatActivity {
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
                 {
                     System.out.println(dataSnapshot1.getKey());
-                    if(dataSnapshot1.getKey().equals("Name"))
+                    if(dataSnapshot1.getKey().equals("name"))
                     {
                         name.setText(dataSnapshot1.getValue().toString());
                     }
-                    if(dataSnapshot1.getKey().equals("Mobile"))
+                    if(dataSnapshot1.getKey().equals("mobile"))
                     {
                         phone.setText(dataSnapshot1.getValue().toString());
                     }
-                    if(dataSnapshot1.getKey().equals("Email"))
+                    if(dataSnapshot1.getKey().equals("email"))
                     {
                         email.setText(dataSnapshot1.getValue().toString());
                     }
@@ -95,10 +95,10 @@ public class UpdateProfile extends AppCompatActivity {
 
                             for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                                 System.out.println(dataSnapshot1.getKey());
-                                if (dataSnapshot1.getKey().equals("Name")) {
+                                if (dataSnapshot1.getKey().equals("name")) {
                                     ref.child(dataSnapshot1.getKey()).setValue(name.getText().toString());
                                 }
-                                if (dataSnapshot1.getKey().equals("Email")) {
+                                if (dataSnapshot1.getKey().equals("email")) {
                                     ref.child(dataSnapshot1.getKey()).setValue(email.getText().toString());
                                 }
                             }

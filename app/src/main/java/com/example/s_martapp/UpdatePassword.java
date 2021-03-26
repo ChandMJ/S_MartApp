@@ -50,7 +50,7 @@ public class UpdatePassword extends AppCompatActivity {
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
                 {
                     System.out.println(dataSnapshot1.getKey());
-                    if(dataSnapshot1.getKey().equals("Password"))
+                    if(dataSnapshot1.getKey().equals("password"))
                     {
                         pass.setText(dataSnapshot1.getValue().toString());
 
@@ -88,7 +88,7 @@ public class UpdatePassword extends AppCompatActivity {
 
                                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                                     System.out.println(dataSnapshot1.getKey());
-                                    if (dataSnapshot1.getKey().equals("Password")) {
+                                    if (dataSnapshot1.getKey().equals("password")) {
                                         ref.child(dataSnapshot1.getKey()).setValue(npass.getText().toString());
                                     }
                                 }

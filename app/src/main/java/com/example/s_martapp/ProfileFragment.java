@@ -87,30 +87,30 @@ public class ProfileFragment extends Fragment {
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
                 {
                     System.out.println(dataSnapshot1.getKey());
-                    if(dataSnapshot1.getKey().equals("Name"))
+                    if(dataSnapshot1.getKey().equals("name"))
                     {
                         name.setText(dataSnapshot1.getValue().toString());
                     }
-                    if(dataSnapshot1.getKey().equals("Mobile"))
+                    if(dataSnapshot1.getKey().equals("mobile"))
                     {
                         mob.setText(dataSnapshot1.getValue().toString());
                     }
-                    if(dataSnapshot1.getKey().equals("Email"))
+                    if(dataSnapshot1.getKey().equals("email"))
                     {
                         email.setText(dataSnapshot1.getValue().toString());
                     }
-                    if(dataSnapshot1.getKey().equals("Password"))
+                    if(dataSnapshot1.getKey().equals("password"))
                     {
                         pass.setText(dataSnapshot1.getValue().toString());
                     }
-                    if(dataSnapshot1.getKey().equals("Semester")){
-                        sem.setText((dataSnapshot1.getValue().toString()));
+                    if(dataSnapshot1.getKey().equals("semester")){
+                        sem.setText("Semester: "+(dataSnapshot1.getValue().toString()));
                     }
-                    if(dataSnapshot1.getKey().equals("Branch")){
-                        branch.setText((dataSnapshot1.getValue().toString()));
+                    if(dataSnapshot1.getKey().equals("branch")){
+                        branch.setText("Branch: "+(dataSnapshot1.getValue().toString()));
                     }
-                    if(dataSnapshot1.getKey().equals("Hostel")){
-                        hostel.setText((dataSnapshot1.getValue().toString()));
+                    if(dataSnapshot1.getKey().equals("hostel")){
+                        hostel.setText("Hostel: "+(dataSnapshot1.getValue().toString()));
                     }
                 }
             }

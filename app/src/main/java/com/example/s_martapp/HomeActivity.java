@@ -21,7 +21,7 @@ public class HomeActivity extends AppCompatActivity {
     String num;
 
     HomeFragment homeFragment;
-    ChatFragment chatFragment;
+    HistoryFragment historyFragment;
     SellFragment sellFragment;
     FavFragment favFragment;
     ProfileFragment profileFragment;
@@ -51,7 +51,7 @@ public class HomeActivity extends AppCompatActivity {
                             case R.id.navigation_home:
                                 viewPager.setCurrentItem(0);
                                 break;
-                            case R.id.navigation_chats:
+                            case R.id.navigation_history:
                                 viewPager.setCurrentItem(1);
                                 break;
                             case R.id.navigation_sell:
@@ -111,13 +111,13 @@ public class HomeActivity extends AppCompatActivity {
     {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         homeFragment=new HomeFragment();
-        chatFragment=new ChatFragment();
+        historyFragment =new HistoryFragment();
         sellFragment=new SellFragment();
         favFragment=new FavFragment();
         profileFragment=new ProfileFragment();
 
         adapter.addFragment(homeFragment);
-        adapter.addFragment(chatFragment);
+        adapter.addFragment(historyFragment);
         adapter.addFragment(sellFragment);
         adapter.addFragment(favFragment);
         adapter.addFragment(profileFragment);

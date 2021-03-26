@@ -125,7 +125,7 @@ public class Sign_up_sheet extends BottomSheetDialogFragment {
             @Override
             public void onClick(View v) {
 
-                if(phone.getText().toString().isEmpty() || phone.getText().toString().length() < 10){
+                if(phone.getText().toString().isEmpty() || phone.getText().toString().length() != 10){
                     phone.setError("Enter a valid mobile");
                     phone.requestFocus();
                 }
@@ -159,6 +159,8 @@ public class Sign_up_sheet extends BottomSheetDialogFragment {
                                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext());
                                 alertDialog.setTitle("OTP verification");
                                 alertDialog.setMessage("Enter OTP");
+
+                                alertDialog.setCancelable(false);
 
                                 final EditText editText = new EditText(getActivity());
                                 LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
@@ -246,6 +248,7 @@ public class Sign_up_sheet extends BottomSheetDialogFragment {
 
             // Setting Dialog Message
             alertDialog.setMessage("Enter OTP");
+            alertDialog.setCancelable(false);
 
             final EditText editText = new EditText(getActivity());
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(

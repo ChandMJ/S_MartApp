@@ -1,7 +1,6 @@
 package com.example.s_martapp;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -15,45 +14,28 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.cardview.widget.CardView;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.DialogFragment;
 
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.android.gms.tasks.TaskExecutors;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
-import com.google.firebase.FirebaseException;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
-import com.google.firebase.auth.PhoneAuthCredential;
-import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.concurrent.TimeUnit;
-
 public class Sign_in_sheet extends BottomSheetDialogFragment {
 
-    private static final int RC_SIGN_IN =1 ;
+    private static final int RC_SIGN_IN = 1;
 
     Button login;
     TextView forgot;
@@ -61,13 +43,13 @@ public class Sign_in_sheet extends BottomSheetDialogFragment {
     TextInputLayout loginpass;
 
     //firebase
-    FirebaseDatabase database=FirebaseDatabase.getInstance();
-    DatabaseReference ref=database.getReference("User");
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference ref = database.getReference("User");
 
-    FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     String mVerificationId;
 
-    public static final String MyPREFERENCES = "login" ;
+    public static final String MyPREFERENCES = "login";
     public static final String Password = "passwordKey";
     public static final String Phone = "phoneKey";
 
@@ -126,14 +108,14 @@ public class Sign_in_sheet extends BottomSheetDialogFragment {
             }
         });
 
-        login=view.findViewById(R.id.login);
-        loginmob=view.findViewById(R.id.loginmob);
-        loginpass=view.findViewById(R.id.login_pass);
-        forgot=view.findViewById(R.id.textView3);
+        login = view.findViewById(R.id.login);
+        loginmob = view.findViewById(R.id.loginmob);
+        loginpass = view.findViewById(R.id.login_pass);
+        forgot = view.findViewById(R.id.textView3);
         forgot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(getActivity(),ForgotPassworActivity.class);
+                Intent i = new Intent(getActivity(), ForgotPassworActivity.class);
                 startActivity(i);
             }
         });
@@ -141,7 +123,7 @@ public class Sign_in_sheet extends BottomSheetDialogFragment {
             @Override
             public void onClick(View v) {
 
-                if(!(loginmob.getText().toString().isEmpty() || loginpass.getEditText().getText().toString().isEmpty())) {
+                if (!(loginmob.getText().toString().isEmpty() || loginpass.getEditText().getText().toString().isEmpty())) {
 
                     final ProgressDialog mdialog = new ProgressDialog(getActivity());
                     mdialog.setMessage("Please wait...");
@@ -161,22 +143,21 @@ public class Sign_in_sheet extends BottomSheetDialogFragment {
                                     sharedpreferences = getContext().getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
                                     //store in shared preference
 
-                                    String pass  = loginpass.getEditText().getText().toString();
-                                    String ph  = loginmob.getText().toString();
-                                    Boolean flag= true;
+                                    String pass = loginpass.getEditText().getText().toString();
+                                    String ph = loginmob.getText().toString();
+                                    Boolean flag = true;
 
                                     SharedPreferences.Editor editor = sharedpreferences.edit();
 
                                     editor.putString("Password", pass);
                                     editor.putString("Phone", ph);
-                                    editor.putBoolean("Flag",flag);
+                                    editor.putBoolean("Flag", flag);
                                     editor.commit();
 
 
-
                                     Toast.makeText(getActivity(), "Login successful !", Toast.LENGTH_LONG).show();
-                                    Intent intent = new Intent(getContext(),HomeActivity.class);
-                                    intent.putExtra("Phone",loginmob.getText().toString());
+                                    Intent intent = new Intent(getContext(), HomeActivity.class);
+                                    intent.putExtra("Phone", loginmob.getText().toString());
                                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(intent);
                                     getActivity().finish();
@@ -194,18 +175,14 @@ public class Sign_in_sheet extends BottomSheetDialogFragment {
 
                         }
                     });
-                }
-                else
-                {
-                    Toast.makeText(getActivity(),"Enter the details!",Toast.LENGTH_LONG).show();
-                    if((loginmob.getText().toString().isEmpty()))
-                    {
+                } else {
+                    Toast.makeText(getActivity(), "Enter the details!", Toast.LENGTH_LONG).show();
+                    if ((loginmob.getText().toString().isEmpty())) {
                         loginmob.setError("Enter phone number");
                         loginmob.requestFocus();
                     }
 
-                    if((loginpass.getEditText().getText().toString().isEmpty()))
-                    {
+                    if ((loginpass.getEditText().getText().toString().isEmpty())) {
                         loginpass.setError("Enter Password");
                         loginpass.requestFocus();
                     }

@@ -22,44 +22,40 @@ public class UpdateProfile extends AppCompatActivity {
 
     ImageView back;
     Button save;
-    AppCompatEditText name,email,phone;
+    AppCompatEditText name, email, phone;
     String num;
 
     //firebase
-    FirebaseAuth firebaseAuth= FirebaseAuth.getInstance();
-    FirebaseDatabase database= FirebaseDatabase.getInstance();
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference ref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_profile);
-        Intent intent=getIntent();
-        num=intent.getStringExtra("Phone");
+        Intent intent = getIntent();
+        num = intent.getStringExtra("Phone");
 
-        name=findViewById(R.id.name);
-        email=findViewById(R.id.email);
-        phone=findViewById(R.id.phone);
+        name = findViewById(R.id.name);
+        email = findViewById(R.id.email);
+        phone = findViewById(R.id.phone);
 
-        ref=database.getReference("User").child(num);
+        ref = database.getReference("User").child(num);
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
-                {
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                     System.out.println(dataSnapshot1.getKey());
-                    if(dataSnapshot1.getKey().equals("name"))
-                    {
+                    if (dataSnapshot1.getKey().equals("name")) {
                         name.setText(dataSnapshot1.getValue().toString());
                     }
-                    if(dataSnapshot1.getKey().equals("mobile"))
-                    {
+                    if (dataSnapshot1.getKey().equals("mobile")) {
                         phone.setText(dataSnapshot1.getValue().toString());
                     }
-                    if(dataSnapshot1.getKey().equals("email"))
-                    {
+                    if (dataSnapshot1.getKey().equals("email")) {
                         email.setText(dataSnapshot1.getValue().toString());
                     }
                 }
@@ -73,8 +69,7 @@ public class UpdateProfile extends AppCompatActivity {
         });
 
 
-
-        back=findViewById(R.id.imageView);
+        back = findViewById(R.id.imageView);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,12 +77,12 @@ public class UpdateProfile extends AppCompatActivity {
             }
         });
 
-        save=findViewById(R.id.login);
+        save = findViewById(R.id.login);
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(!(name.getText().toString().isEmpty() || email.getText().toString().isEmpty())) {
+                if (!(name.getText().toString().isEmpty() || email.getText().toString().isEmpty())) {
 
                     ref.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
@@ -111,9 +106,8 @@ public class UpdateProfile extends AppCompatActivity {
 
                         }
                     });
-                }
-                else{
-                    Toast.makeText(UpdateProfile.this,"Fill the details",Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(UpdateProfile.this, "Fill the details", Toast.LENGTH_LONG).show();
                 }
 
             }

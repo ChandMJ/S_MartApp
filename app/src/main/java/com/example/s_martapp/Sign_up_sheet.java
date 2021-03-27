@@ -48,15 +48,15 @@ public class Sign_up_sheet extends BottomSheetDialogFragment {
     //RecyclerView recyclerView;
     //private RecyclerView.LayoutManager layoutManager;
     Button signup;
-    AppCompatEditText name,phone,email,branch,sem,hostel;
+    AppCompatEditText name, phone, email, branch, sem, hostel;
     TextInputLayout passw;
 
     String mVerificationId;
 
     //firebase
-    FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
-    FirebaseDatabase database=FirebaseDatabase.getInstance();
-    DatabaseReference ref=database.getReference();
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference ref = database.getReference();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -111,21 +111,21 @@ public class Sign_up_sheet extends BottomSheetDialogFragment {
             }
         });
 
-        name=view.findViewById(R.id.name);
-        email=view.findViewById(R.id.email);
-        phone=view.findViewById(R.id.phone);
-        branch=view.findViewById(R.id.branch);
-        sem=view.findViewById(R.id.sem);
-        hostel=view.findViewById(R.id.hostel);
+        name = view.findViewById(R.id.name);
+        email = view.findViewById(R.id.email);
+        phone = view.findViewById(R.id.phone);
+        branch = view.findViewById(R.id.branch);
+        sem = view.findViewById(R.id.sem);
+        hostel = view.findViewById(R.id.hostel);
 
-        passw=view.findViewById(R.id.passcont);
+        passw = view.findViewById(R.id.passcont);
 
-        signup=view.findViewById(R.id.sign_up_wel);
+        signup = view.findViewById(R.id.sign_up_wel);
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(phone.getText().toString().isEmpty() || phone.getText().toString().length() != 10){
+                if (phone.getText().toString().isEmpty() || phone.getText().toString().length() != 10) {
                     phone.setError("Enter a valid mobile");
                     phone.requestFocus();
                 }
@@ -133,19 +133,13 @@ public class Sign_up_sheet extends BottomSheetDialogFragment {
                 if (email.getText().toString().isEmpty()) {
                     email.setError("Provide your Email first!");
                     email.requestFocus();
-                }
-
-                else if (passw.getEditText().getText().toString().isEmpty()) {
+                } else if (passw.getEditText().getText().toString().isEmpty()) {
                     passw.setError("Set your password");
                     passw.requestFocus();
-                }
-
-                else if (email.getText().toString().isEmpty() && passw.getEditText().getText().toString().isEmpty()) {
+                } else if (email.getText().toString().isEmpty() && passw.getEditText().getText().toString().isEmpty()) {
                     Toast.makeText(getActivity(), "Fields Empty!", Toast.LENGTH_SHORT).show();
-                }
-
-                else if (!(email.getText().toString().isEmpty() || passw.getEditText().getText().toString().isEmpty() || phone.getText().toString().isEmpty() || branch.getText().toString().isEmpty() || sem.getText().toString().isEmpty() || hostel.getText().toString().isEmpty()|| name.getText().toString().isEmpty())) {
-                    firebaseAuth.createUserWithEmailAndPassword(email.getText().toString(),passw.getEditText().getText().toString()).addOnCompleteListener(getActivity(), new OnCompleteListener() {
+                } else if (!(email.getText().toString().isEmpty() || passw.getEditText().getText().toString().isEmpty() || phone.getText().toString().isEmpty() || branch.getText().toString().isEmpty() || sem.getText().toString().isEmpty() || hostel.getText().toString().isEmpty() || name.getText().toString().isEmpty())) {
+                    firebaseAuth.createUserWithEmailAndPassword(email.getText().toString(), passw.getEditText().getText().toString()).addOnCompleteListener(getActivity(), new OnCompleteListener() {
                         @Override
                         public void onComplete(@NonNull Task task) {
 
@@ -173,7 +167,7 @@ public class Sign_up_sheet extends BottomSheetDialogFragment {
                                 // Setting Positive "Yes" Button
                                 alertDialog.setPositiveButton("YES",
                                         new DialogInterface.OnClickListener() {
-                                            public void onClick(DialogInterface dialog,int which) {
+                                            public void onClick(DialogInterface dialog, int which) {
                                                 // Write your code here to execute after dialog
                                                 String code = editText.getText().toString().trim();
                                                 if (code.isEmpty() || code.length() < 6) {
@@ -215,8 +209,6 @@ public class Sign_up_sheet extends BottomSheetDialogFragment {
         });
 
 
-
-
     }
 
 
@@ -228,6 +220,7 @@ public class Sign_up_sheet extends BottomSheetDialogFragment {
                 TaskExecutors.MAIN_THREAD,
                 mCallbacks);
     }
+
     //the callback to detect the verification status
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
         @Override
@@ -266,7 +259,7 @@ public class Sign_up_sheet extends BottomSheetDialogFragment {
             // Setting Positive "Yes" Button
             alertDialog.setPositiveButton("YES",
                     new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog,int which) {
+                        public void onClick(DialogInterface dialog, int which) {
                             // Write your code here to execute after dialog
                             String code = editText.getText().toString().trim();
                             if (code.isEmpty() || code.length() < 6) {
@@ -311,6 +304,7 @@ public class Sign_up_sheet extends BottomSheetDialogFragment {
             mVerificationId = s;
         }
     };
+
     private void verifyVerificationCode(String code) {
         //creating the credential
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, code);
@@ -333,19 +327,16 @@ public class Sign_up_sheet extends BottomSheetDialogFragment {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                     //Chcek if phone exists
-                                    if(dataSnapshot.child(phone.getText().toString()).exists())
-                                    {
+                                    if (dataSnapshot.child(phone.getText().toString()).exists()) {
                                         mdialog.dismiss();
-                                        Toast.makeText(getContext(),"Mobile number already exists!",Toast.LENGTH_LONG).show();
-                                    }
-                                    else
-                                    {
+                                        Toast.makeText(getContext(), "Mobile number already exists!", Toast.LENGTH_LONG).show();
+                                    } else {
                                         mdialog.dismiss();
-                                        User user=new User(name.getText().toString(),passw.getEditText().getText().toString(),email.getText().toString(),phone.getText().toString(),sem.getText().toString(),hostel.getText().toString(),branch.getText().toString());
+                                        User user = new User(name.getText().toString(), passw.getEditText().getText().toString(), email.getText().toString(), phone.getText().toString(), sem.getText().toString(), hostel.getText().toString(), branch.getText().toString());
                                         ref.child("User").child(phone.getText().toString()).setValue(user);
-                                        Toast.makeText(getActivity(),"Sign up successful!",Toast.LENGTH_LONG).show();
-                                        Intent intent = new Intent(getContext(),HomeActivity.class);
-                                        intent.putExtra("Phone",phone.getText().toString());
+                                        Toast.makeText(getActivity(), "Sign up successful!", Toast.LENGTH_LONG).show();
+                                        Intent intent = new Intent(getContext(), HomeActivity.class);
+                                        intent.putExtra("Phone", phone.getText().toString());
                                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                         startActivity(intent);
                                         getActivity().finish();
@@ -380,7 +371,6 @@ public class Sign_up_sheet extends BottomSheetDialogFragment {
                     }
                 });
     }
-
 
 
 }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -15,6 +14,7 @@
         app:titleTextColor="@color/white"
         android:background="@color/dark_blue"
         app:title="         Item details" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
@@ -36,6 +36,7 @@
             android:layout_marginTop="30dp"
             android:paddingBottom="190dp"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -44,7 +45,7 @@
                 android:textColor="@color/black"
                 android:gravity="center"
                 android:textSize="18sp"
-                android:textStyle="italic"/>
+                android:textStyle="italic" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/camera"
@@ -109,8 +110,7 @@
                 android:layout_marginRight="20dp"
                 android:id="@+id/gv"
                 android:numColumns="3"
-                android:layout_weight="1">
-            </GridView>
+                android:layout_weight="1"></GridView>
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/category"

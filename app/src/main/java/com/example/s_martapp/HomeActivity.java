@@ -27,21 +27,22 @@ public class HomeActivity extends AppCompatActivity {
     ProfileFragment profileFragment;
 
     private ViewPager viewPager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        Intent intent1=getIntent();
-        num=intent1.getStringExtra("Phone");
+        Intent intent1 = getIntent();
+        num = intent1.getStringExtra("Phone");
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setOffscreenPageLimit(4);
 
 
         //Initializing the bottomNavigationView
-        bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottom_navigation);
+        bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -77,9 +78,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onPageSelected(int position) {
                 if (prevMenuItem != null) {
                     prevMenuItem.setChecked(false);
-                }
-                else
-                {
+                } else {
                     bottomNavigationView.getMenu().getItem(0).setChecked(false);
                 }
                 bottomNavigationView.getMenu().getItem(position).setChecked(true);
@@ -93,11 +92,9 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
         //Disable ViewPager Swipe
-        viewPager.setOnTouchListener(new View.OnTouchListener()
-        {
+        viewPager.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event)
-            {
+            public boolean onTouch(View v, MotionEvent event) {
 
                 return false;
             }
@@ -107,14 +104,13 @@ public class HomeActivity extends AppCompatActivity {
         setupViewPager(viewPager);
     }
 
-    private void setupViewPager(ViewPager viewPager)
-    {
+    private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        homeFragment=new HomeFragment();
-        historyFragment =new HistoryFragment();
-        sellFragment=new SellFragment();
-        favFragment=new FavFragment();
-        profileFragment=new ProfileFragment();
+        homeFragment = new HomeFragment();
+        historyFragment = new HistoryFragment();
+        sellFragment = new SellFragment();
+        favFragment = new FavFragment();
+        profileFragment = new ProfileFragment();
 
         adapter.addFragment(homeFragment);
         adapter.addFragment(historyFragment);

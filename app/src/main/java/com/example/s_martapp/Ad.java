@@ -1,8 +1,8 @@
 package com.example.s_martapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Ad extends AppCompatActivity {
 

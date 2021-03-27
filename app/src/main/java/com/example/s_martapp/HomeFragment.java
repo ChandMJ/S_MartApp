@@ -21,7 +21,7 @@ public class HomeFragment extends Fragment {
 
     LinearLayout search;
 
-    CardView book,electronic,sport,misc,music,vehicles,snacks;
+    CardView book, electronic, sport, misc, music, vehicles, snacks;
 
     public HomeFragment() {
     }
@@ -40,22 +40,22 @@ public class HomeFragment extends Fragment {
         HomeActivity activity = (HomeActivity) getActivity();
         num = activity.sendData();
 
-        search=view.findViewById(R.id.search_bar);
+        search = view.findViewById(R.id.search_bar);
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(getActivity(),SearchhomeActivity.class);
-                i.putExtra("Phone",num);
+                Intent i = new Intent(getActivity(), SearchhomeActivity.class);
+                i.putExtra("Phone", num);
                 startActivity(i);
             }
         });
 
-        next=view.findViewById(R.id.imageView);
+        next = view.findViewById(R.id.imageView);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(getActivity(),Browse_cat.class);
-                i.putExtra("Phone",num);
+                Intent i = new Intent(getActivity(), Browse_cat.class);
+                i.putExtra("Phone", num);
                 startActivity(i);
             }
         });

@@ -33,19 +33,19 @@ public class SlideViewPagerAdapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
 
         //LayoutInflater layoutInflater = LayoutInflater.from(context);
-        View view=LayoutInflater.from(context).inflate(R.layout.fragment_onboard,container,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.fragment_onboard, container, false);
 
-        ImageView logo=view.findViewById(R.id.onboard_img1);
-        ImageView ind1=view.findViewById(R.id.ind1);
-        ImageView ind2=view.findViewById(R.id.ind2);
-        ImageView ind3=view.findViewById(R.id.ind3);
-        ImageView ind4=view.findViewById(R.id.ind4);
-        ImageView ind5=view.findViewById(R.id.ind5);
+        ImageView logo = view.findViewById(R.id.onboard_img1);
+        ImageView ind1 = view.findViewById(R.id.ind1);
+        ImageView ind2 = view.findViewById(R.id.ind2);
+        ImageView ind3 = view.findViewById(R.id.ind3);
+        ImageView ind4 = view.findViewById(R.id.ind4);
+        ImageView ind5 = view.findViewById(R.id.ind5);
 
 
-        switch (position){
+        switch (position) {
             case 0:
-                logo.setImageResource(R.drawable.group_1);
+                logo.setImageResource(R.drawable.ic_group_1);
                 ind1.setImageResource(R.drawable.selected);
                 ind2.setImageResource(R.drawable.unselected);
                 ind3.setImageResource(R.drawable.unselected);
@@ -55,7 +55,7 @@ public class SlideViewPagerAdapter extends PagerAdapter {
 
 
             case 1:
-                logo.setImageResource(R.drawable.group_2);
+                logo.setImageResource(R.drawable.ic_group_2);
                 ind1.setImageResource(R.drawable.unselected);
                 ind2.setImageResource(R.drawable.selected);
                 ind3.setImageResource(R.drawable.unselected);
@@ -64,7 +64,7 @@ public class SlideViewPagerAdapter extends PagerAdapter {
                 break;
 
             case 2:
-                logo.setImageResource(R.drawable.group_3);
+                logo.setImageResource(R.drawable.ic_group_3);
                 ind1.setImageResource(R.drawable.unselected);
                 ind2.setImageResource(R.drawable.unselected);
                 ind3.setImageResource(R.drawable.selected);
@@ -72,7 +72,7 @@ public class SlideViewPagerAdapter extends PagerAdapter {
                 ind5.setImageResource(R.drawable.unselected);
                 break;
             case 3:
-                logo.setImageResource(R.drawable.group_4);
+                logo.setImageResource(R.drawable.ic_group_4);
                 ind1.setImageResource(R.drawable.unselected);
                 ind2.setImageResource(R.drawable.unselected);
                 ind3.setImageResource(R.drawable.unselected);
@@ -81,17 +81,19 @@ public class SlideViewPagerAdapter extends PagerAdapter {
 
                 break;
             case 4:
-                logo.setImageResource(R.drawable.group_5);
+                logo.setImageResource(R.drawable.ic_group_5);
                 ind1.setImageResource(R.drawable.unselected);
                 ind2.setImageResource(R.drawable.unselected);
                 ind3.setImageResource(R.drawable.unselected);
                 ind4.setImageResource(R.drawable.unselected);
                 ind5.setImageResource(R.drawable.selected);
                 break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + position);
         }
 
         container.addView(view);
-        return  view;
+        return view;
 
     }
 

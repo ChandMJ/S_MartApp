@@ -34,12 +34,12 @@ public class ForgotPassworActivity extends AppCompatActivity {
 
     Button sendotp;
     EditText mobile;
-    FirebaseAuth firebaseAuth= FirebaseAuth.getInstance();
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private FirebaseAuth.AuthStateListener authStateListener;
-    String mVerificationId,emailsend;
+    String mVerificationId, emailsend;
 
-    FirebaseDatabase database= FirebaseDatabase.getInstance();
-    DatabaseReference ref=database.getReference().child("User");
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference ref = database.getReference().child("User");
     DatabaseReference ref1;
 
     @Override
@@ -47,8 +47,8 @@ public class ForgotPassworActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgotpassword);
 
-        sendotp=findViewById(R.id.sendotp);
-        mobile=findViewById(R.id.mobile);
+        sendotp = findViewById(R.id.sendotp);
+        mobile = findViewById(R.id.mobile);
 
         sendotp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,16 +66,13 @@ public class ForgotPassworActivity extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             //Chcek if phone exists
-                            if(dataSnapshot.child(mobile.getText().toString()).exists())
-                            {
+                            if (dataSnapshot.child(mobile.getText().toString()).exists()) {
                                 mdialog.dismiss();
                                 Toast.makeText(ForgotPassworActivity.this, "OTP sent to registered mobile number", Toast.LENGTH_SHORT).show();
                                 checkforotp(mobile.getText().toString());
-                            }
-                            else
-                            {
+                            } else {
                                 mdialog.dismiss();
-                                Toast.makeText(ForgotPassworActivity.this,"Mobile number not registered!!!"+mobile.getText().toString(),Toast.LENGTH_LONG).show();
+                                Toast.makeText(ForgotPassworActivity.this, "Mobile number not registered!!!" + mobile.getText().toString(), Toast.LENGTH_LONG).show();
                                 finish();
                             }
                         }
@@ -95,7 +92,7 @@ public class ForgotPassworActivity extends AppCompatActivity {
     }
 
 
-    public void checkforotp(final String mobile){
+    public void checkforotp(final String mobile) {
 
 
         sendVerificationCode(mobile);
@@ -121,7 +118,7 @@ public class ForgotPassworActivity extends AppCompatActivity {
         // Setting Positive "Yes" Button
         alertDialog.setPositiveButton("YES",
                 new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog,int which) {
+                    public void onClick(DialogInterface dialog, int which) {
                         // Write your code here to execute after dialog
                         String code = editText.getText().toString().trim();
                         if (code.isEmpty() || code.length() < 6) {
@@ -159,6 +156,7 @@ public class ForgotPassworActivity extends AppCompatActivity {
                 TaskExecutors.MAIN_THREAD,
                 mCallbacks);
     }
+
     //the callback to detect the verification status
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
         @Override
@@ -197,7 +195,7 @@ public class ForgotPassworActivity extends AppCompatActivity {
             // Setting Positive "Yes" Button
             alertDialog.setPositiveButton("YES",
                     new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog,int which) {
+                        public void onClick(DialogInterface dialog, int which) {
                             // Write your code here to execute after dialog
                             String code = editText.getText().toString().trim();
                             if (code.isEmpty() || code.length() < 6) {
@@ -242,6 +240,7 @@ public class ForgotPassworActivity extends AppCompatActivity {
             mVerificationId = s;
         }
     };
+
     private void verifyVerificationCode(String code) {
         //creating the credential
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, code);
@@ -279,10 +278,10 @@ public class ForgotPassworActivity extends AppCompatActivity {
                             // Setting Positive "Yes" Button
                             alertDialog.setPositiveButton("YES",
                                     new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog,int which) {
+                                        public void onClick(DialogInterface dialog, int which) {
                                             // Write your code here to execute after dialog
                                             //System.out.println("-------------------------------------------------------------------------"+mobile.getText().toString());
-                                            if(!(editText.getText().toString().equals(null))) {
+                                            if (!(editText.getText().toString().equals(null))) {
                                                 final ProgressDialog mdialog = new ProgressDialog(ForgotPassworActivity.this);
                                                 mdialog.setMessage("Please wait...");
                                                 mdialog.show();
@@ -307,8 +306,8 @@ public class ForgotPassworActivity extends AppCompatActivity {
 
                                                     }
                                                 });
-                                            }else{
-                                                Toast.makeText(ForgotPassworActivity.this,"Enter a password to update",Toast.LENGTH_LONG).show();
+                                            } else {
+                                                Toast.makeText(ForgotPassworActivity.this, "Enter a password to update", Toast.LENGTH_LONG).show();
                                             }
 
                                         }
@@ -346,12 +345,11 @@ public class ForgotPassworActivity extends AppCompatActivity {
                                 message = "Invalid code entered...";
                             }
 
-                            Toast.makeText(ForgotPassworActivity.this,"Error",Toast.LENGTH_LONG).show();
+                            Toast.makeText(ForgotPassworActivity.this, "Error", Toast.LENGTH_LONG).show();
                         }
                     }
                 });
     }
-
 
 
 }

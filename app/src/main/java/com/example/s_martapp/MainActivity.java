@@ -1,13 +1,12 @@
 package com.example.s_martapp;
 
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
-
 import android.os.Bundle;
-
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -20,17 +19,18 @@ public class MainActivity extends AppCompatActivity {
     Sign_up_sheet sign_up_sheet;
     ViewPager viewp;
     SlideViewPagerAdapter slideViewPagerAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        viewp=findViewById(R.id.viewPager);
+        viewp = findViewById(R.id.viewPager);
 
-        slideViewPagerAdapter=new SlideViewPagerAdapter(MainActivity.this);
+        slideViewPagerAdapter = new SlideViewPagerAdapter(MainActivity.this);
         viewp.setAdapter(slideViewPagerAdapter);
-        Timer timer=new Timer();
-        timer.scheduleAtFixedRate(new MyTimerTask(),2000,4000);
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new MyTimerTask(), 2000, 4000);
 
 
         sign_in = findViewById(R.id.sign_in_wel);
@@ -46,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         sign_up.setOnClickListener(new View.OnClickListener() {
-            @Override            public void onClick(View v) {
+            @Override
+            public void onClick(View v) {
 
                 sign_up_sheet = new Sign_up_sheet();
                 sign_up_sheet.show(getSupportFragmentManager(), "Invite");
@@ -55,17 +56,18 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-    public class MyTimerTask extends TimerTask{
+
+    public class MyTimerTask extends TimerTask {
         @Override
         public void run() {
             MainActivity.this.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    if(viewp.getCurrentItem()==0)
+                    if (viewp.getCurrentItem() == 0)
                         viewp.setCurrentItem(1);
-                    else if(viewp.getCurrentItem()==1)
+                    else if (viewp.getCurrentItem() == 1)
                         viewp.setCurrentItem(2);
-                    else if(viewp.getCurrentItem()==2)
+                    else if (viewp.getCurrentItem() == 2)
                         viewp.setCurrentItem(3);
                     else
                         viewp.setCurrentItem(0);

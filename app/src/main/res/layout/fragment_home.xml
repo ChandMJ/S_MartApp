@@ -1,6 +1,5 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -149,6 +148,7 @@
                     app:srcCompat="@drawable/ic_baseline_navigate_next_24" />
 
             </FrameLayout>
+
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -210,7 +210,7 @@
                                             app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toTopOf="parent"
-                                            android:src="@drawable/icons8_open_book_100"/>
+                                            android:src="@drawable/icons8_open_book_100" />
                                     </androidx.cardview.widget.CardView>
 
 
@@ -218,16 +218,16 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent">
 
-                                            <TextView
-                                                android:id="@+id/sug_top_topicname1"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="match_parent"
-                                                android:layout_marginBottom="10dp"
-                                                android:fontFamily="@font/alice"
-                                                android:text="Books"
-                                                android:gravity="center"
-                                                android:textColor="@color/primary_text_color"
-                                                android:textSize="14dp" />
+                                        <TextView
+                                            android:id="@+id/sug_top_topicname1"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginBottom="10dp"
+                                            android:fontFamily="@font/alice"
+                                            android:text="Books"
+                                            android:gravity="center"
+                                            android:textColor="@color/primary_text_color"
+                                            android:textSize="14dp" />
 
                                     </androidx.cardview.widget.CardView>
 
@@ -265,7 +265,7 @@
                                             app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toTopOf="parent"
-                                            android:src="@drawable/icons8_headphones_100"/>
+                                            android:src="@drawable/icons8_headphones_100" />
                                     </androidx.cardview.widget.CardView>
 
 
@@ -319,7 +319,7 @@
                                             app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toTopOf="parent"
-                                            android:src="@drawable/icons8_dirt_bike_100"/>
+                                            android:src="@drawable/icons8_dirt_bike_100" />
                                     </androidx.cardview.widget.CardView>
 
 
@@ -373,7 +373,7 @@
                                             app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toTopOf="parent"
-                                            android:src="@drawable/icons8_guitar_100"/>
+                                            android:src="@drawable/icons8_guitar_100" />
                                     </androidx.cardview.widget.CardView>
 
 
@@ -427,7 +427,7 @@
                                             app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toTopOf="parent"
-                                            android:src="@drawable/icons8_ping_pong_100"/>
+                                            android:src="@drawable/icons8_ping_pong_100" />
                                     </androidx.cardview.widget.CardView>
 
 
@@ -481,7 +481,7 @@
                                             app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toTopOf="parent"
-                                            android:src="@drawable/icons8_potato_chips_100"/>
+                                            android:src="@drawable/icons8_potato_chips_100" />
                                     </androidx.cardview.widget.CardView>
 
 
@@ -535,7 +535,7 @@
                                             app:layout_constraintEnd_toEndOf="parent"
                                             app:layout_constraintStart_toStartOf="parent"
                                             app:layout_constraintTop_toTopOf="parent"
-                                            android:src="@drawable/misc1"/>
+                                            android:src="@drawable/misc1" />
                                     </androidx.cardview.widget.CardView>
 
 
@@ -558,7 +558,6 @@
                                 </LinearLayout>
 
                             </androidx.cardview.widget.CardView>
-
 
 
                         </LinearLayout>

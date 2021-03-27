@@ -23,43 +23,39 @@ public class ChangeCol extends AppCompatActivity {
     ImageView back;
     Button save;
     String num;
-    AppCompatEditText sem,branch,hostel;
+    AppCompatEditText sem, branch, hostel;
 
     //firebase
-    FirebaseAuth firebaseAuth= FirebaseAuth.getInstance();
-    FirebaseDatabase database= FirebaseDatabase.getInstance();
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference ref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_col);
-        Intent intent=getIntent();
-        num=intent.getStringExtra("Phone");
+        Intent intent = getIntent();
+        num = intent.getStringExtra("Phone");
 
-        sem=findViewById(R.id.sem);
-        branch=findViewById(R.id.name);
-        hostel=findViewById(R.id.hostel);
+        sem = findViewById(R.id.sem);
+        branch = findViewById(R.id.name);
+        hostel = findViewById(R.id.hostel);
 
-        ref=database.getReference("User").child(num);
+        ref = database.getReference("User").child(num);
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
-                {
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                     System.out.println(dataSnapshot1.getKey());
-                    if(dataSnapshot1.getKey().equals("semester"))
-                    {
+                    if (dataSnapshot1.getKey().equals("semester")) {
                         sem.setText(dataSnapshot1.getValue().toString());
                     }
-                    if(dataSnapshot1.getKey().equals("branch"))
-                    {
+                    if (dataSnapshot1.getKey().equals("branch")) {
                         branch.setText(dataSnapshot1.getValue().toString());
                     }
-                    if(dataSnapshot1.getKey().equals("hostel"))
-                    {
+                    if (dataSnapshot1.getKey().equals("hostel")) {
                         hostel.setText(dataSnapshot1.getValue().toString());
                     }
                 }
@@ -72,7 +68,7 @@ public class ChangeCol extends AppCompatActivity {
             }
         });
 
-        back=findViewById(R.id.imageView);
+        back = findViewById(R.id.imageView);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,19 +76,19 @@ public class ChangeCol extends AppCompatActivity {
             }
         });
 
-        save=findViewById(R.id.login);
+        save = findViewById(R.id.login);
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 if(!(sem.getText().toString().isEmpty() || branch.getText().toString().isEmpty() || hostel.getText().toString().isEmpty() )) {
+                if (!(sem.getText().toString().isEmpty() || branch.getText().toString().isEmpty() || hostel.getText().toString().isEmpty())) {
 
                     ref.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                                    ref.child("semester").setValue(sem.getText().toString());
-                                    ref.child("branch").setValue(branch.getText().toString());
-                                    ref.child("hostel").setValue(hostel.getText().toString());
+                            ref.child("semester").setValue(sem.getText().toString());
+                            ref.child("branch").setValue(branch.getText().toString());
+                            ref.child("hostel").setValue(hostel.getText().toString());
 
                             Toast.makeText(ChangeCol.this, "Details Update Successful!", Toast.LENGTH_LONG).show();
                             onBackPressed();
@@ -103,9 +99,8 @@ public class ChangeCol extends AppCompatActivity {
 
                         }
                     });
-                }
-                else {
-                    Toast.makeText(ChangeCol.this,"Fill the details",Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(ChangeCol.this, "Fill the details", Toast.LENGTH_LONG).show();
                 }
 
             }

@@ -17,6 +17,7 @@ public class GalleryAdapter extends BaseAdapter {
     private LayoutInflater inflater;
     private ImageView ivGallery;
     ArrayList<Uri> mArrayUri;
+
     public GalleryAdapter(Context ctx, ArrayList<Uri> mArrayUri) {
 
         this.ctx = ctx;

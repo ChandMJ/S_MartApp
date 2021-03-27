@@ -23,35 +23,33 @@ public class UpdatePassword extends AppCompatActivity {
     ImageView back;
     String num;
     Button save;
-    TextView pass,cpass,npass;
+    TextView pass, cpass, npass;
 
     //firebase
-    FirebaseAuth firebaseAuth= FirebaseAuth.getInstance();
-    FirebaseDatabase database= FirebaseDatabase.getInstance();
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference ref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_password);
-        Intent intent=getIntent();
-        num=intent.getStringExtra("Phone");
+        Intent intent = getIntent();
+        num = intent.getStringExtra("Phone");
 
-        pass=findViewById(R.id.name);
-        cpass=findViewById(R.id.phone);
-        npass=findViewById(R.id.email);
+        pass = findViewById(R.id.name);
+        cpass = findViewById(R.id.phone);
+        npass = findViewById(R.id.email);
 
-        ref=database.getReference("User").child(num);
+        ref = database.getReference("User").child(num);
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
-                {
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                     System.out.println(dataSnapshot1.getKey());
-                    if(dataSnapshot1.getKey().equals("password"))
-                    {
+                    if (dataSnapshot1.getKey().equals("password")) {
                         pass.setText(dataSnapshot1.getValue().toString());
 
                     }
@@ -66,7 +64,7 @@ public class UpdatePassword extends AppCompatActivity {
             }
         });
 
-        back=findViewById(R.id.imageView);
+        back = findViewById(R.id.imageView);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,12 +72,12 @@ public class UpdatePassword extends AppCompatActivity {
             }
         });
 
-        save=findViewById(R.id.login);
+        save = findViewById(R.id.login);
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(!(cpass.getText().toString().isEmpty() || npass.getText().toString().isEmpty())) {
+                if (!(cpass.getText().toString().isEmpty() || npass.getText().toString().isEmpty())) {
                     if (pass.getText().toString().equals(cpass.getText().toString())) {
 
                         ref.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -104,9 +102,8 @@ public class UpdatePassword extends AppCompatActivity {
                     } else {
                         Toast.makeText(UpdatePassword.this, "Current password is wrong!!!", Toast.LENGTH_LONG).show();
                     }
-                }
-                else {
-                    Toast.makeText(UpdatePassword.this,"Fill the details",Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(UpdatePassword.this, "Fill the details", Toast.LENGTH_LONG).show();
                 }
 
             }

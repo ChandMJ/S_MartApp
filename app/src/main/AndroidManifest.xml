@@ -2,10 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.s_martapp">
 
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-
-    <uses-feature android:name="android.hardware.type.watch" />
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
@@ -16,28 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <uses-library
-            android:name="com.google.android.wearable"
-            android:required="true" />
-
-        <!--
-               Set to true if your app is Standalone, that is, it does not require the handheld
-               app to run.
-        -->
-        <meta-data
-            android:name="com.google.android.wearable.standalone"
-            android:value="true" />
 
         <activity
-            android:name=".ImagesGalleryActivity"
-            android:label="@string/title_activity_images_gallery">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:name=".BrowsedCategoryActivity"
+            android:label="@string/title_activity_browsed_category">
         </activity>
-        <activity android:name=".ParticularAdActivity"></activity>
+        <activity
+            android:name=".ImagesGalleryActivity"
+            android:label="@string/title_activity_images_gallery"></activity>
+        <activity android:name=".ParticularAdActivity" />
         <activity
             android:name=".SearchhomeActivity"
             android:label="@string/title_activity_searchhome" />

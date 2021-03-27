@@ -1,9 +1,12 @@
 package com.example.s_martapp;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -44,12 +47,25 @@ public class ShowMyAdHisAdapter extends RecyclerView.Adapter<ShowMyAdHisAdapter.
     @Override
     public void onBindViewHolder(@NonNull ShowMyAdHisAdapter.myViewHolder holder, int position){
 
-        MyAdHisShow show = showList.get(position);
+        final MyAdHisShow show = showList.get(position);
 
         holder.category.setText(show.getCategory());
         holder.title.setText(show.getTitle());
         holder.price.setText("₹ "+show.getPrice());
         holder.date.setText("Posted On: "+show.getDate());
+
+        holder.next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(context, ParticularAdActivity.class);
+                i.putExtra("Phone",num);
+                i.putExtra("category",show.getCategory());
+                i.putExtra("Sellerphone",num);
+                i.putExtra("date",show.getDate());
+                context.startActivity(i);
+
+            }
+        });
 
     }
 
@@ -61,6 +77,7 @@ public class ShowMyAdHisAdapter extends RecyclerView.Adapter<ShowMyAdHisAdapter.
     public class myViewHolder extends RecyclerView.ViewHolder
     {
         TextView category,title,price,date;
+        ImageView next;
 
         public myViewHolder(View itemView){
 
@@ -69,6 +86,7 @@ public class ShowMyAdHisAdapter extends RecyclerView.Adapter<ShowMyAdHisAdapter.
             title=itemView.findViewById(R.id.textView15);
             price=itemView.findViewById(R.id.textView16);
             date=itemView.findViewById(R.id.textView18);
+            next=itemView.findViewById(R.id.nxt);
         }
     }
 

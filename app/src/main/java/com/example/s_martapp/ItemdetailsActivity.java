@@ -17,13 +17,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.cardview.widget.CardView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -38,6 +43,8 @@ public class ItemdetailsActivity extends AppCompatActivity {
 
     String num,category;
     ImageView back;
+
+    String username;
 
     ProgressDialog progressDialog;
 
@@ -57,6 +64,11 @@ public class ItemdetailsActivity extends AppCompatActivity {
 
     Button save;
 
+    //firebase
+    FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
+    FirebaseDatabase database=FirebaseDatabase.getInstance();
+    DatabaseReference ref1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -65,6 +77,8 @@ public class ItemdetailsActivity extends AppCompatActivity {
         Intent intent =getIntent();
         num=intent.getStringExtra("Phone");
         category=intent.getStringExtra("category");
+
+        ref1=database.getReference("User").child(num);
 
         progressDialog=new ProgressDialog(this);
         progressDialog.setMessage("Image Uploading Please wait............");
@@ -79,6 +93,22 @@ public class ItemdetailsActivity extends AppCompatActivity {
         choosetxt=findViewById(R.id.choosetext);
 
         gvGallery = (GridView)findViewById(R.id.gv);
+
+        ref1.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
+                    if(dataSnapshot1.getKey().toString().equals("name")){
+                        username=dataSnapshot1.getValue().toString();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         free=findViewById(R.id.checkBox);
 
@@ -159,6 +189,7 @@ public class ItemdetailsActivity extends AppCompatActivity {
         databaseReference1.child("Date").setValue(currentdate);
         databaseReference1.child("Price").setValue(price.getText().toString());
         databaseReference1.child("User").setValue(num);
+        databaseReference1.child("Username").setValue(username);
 
     }
 

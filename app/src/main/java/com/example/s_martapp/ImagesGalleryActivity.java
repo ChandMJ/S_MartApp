@@ -1,6 +1,7 @@
 package com.example.s_martapp;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -39,6 +40,8 @@ public class ImagesGalleryActivity extends AppCompatActivity {
     FirebaseDatabase database=FirebaseDatabase.getInstance();
     DatabaseReference ref;
 
+    ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -49,8 +52,13 @@ public class ImagesGalleryActivity extends AppCompatActivity {
         category=intent1.getStringExtra("category");
         user=intent1.getStringExtra("user");
 
+
+        progressDialog=new ProgressDialog(this);
+        progressDialog.setMessage("Image Uploading Please wait............");
+
         ref=database.getReference("User").child(user).child("MyAd").child(category);
 
+        progressDialog.show();
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -90,6 +98,7 @@ public class ImagesGalleryActivity extends AppCompatActivity {
         lp.setMargins(0, 0, 10, 0);
         imageView.setLayoutParams(lp);
         Glide.with(ImagesGalleryActivity.this).load(image).into(imageView);
+        progressDialog.dismiss();
         return imageView;
     }
 

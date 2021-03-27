@@ -2,6 +2,7 @@ package com.example.s_martapp;
 
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -46,6 +48,8 @@ public class ParticularAdActivity extends AppCompatActivity {
     Button call;
     TextView moreimg;
 
+    ImageView back;
+
     //firebase
     FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
     FirebaseDatabase database=FirebaseDatabase.getInstance();
@@ -65,6 +69,8 @@ public class ParticularAdActivity extends AppCompatActivity {
 
         donate=findViewById(R.id.donate);
 
+        back=findViewById(R.id.imageView);
+
         pprice=findViewById(R.id.pprice);
         pname=findViewById(R.id.pname);
         iloc=findViewById(R.id.iloc);
@@ -82,7 +88,13 @@ public class ParticularAdActivity extends AppCompatActivity {
 
         gv=findViewById(R.id.gv);
 
+        if(num.equals(user)){
+            call.setVisibility(View.GONE);
+        }
+
         databaseReference=database.getReference("User").child(num);
+
+        System.out.println(user+"     "+num+"    "+category+"    "+day);
 
         ref=database.getReference("User").child(user).child("MyAd").child(category);
         ref1=database.getReference("User").child(user);
@@ -120,6 +132,16 @@ public class ParticularAdActivity extends AppCompatActivity {
                         }
                     }
                 }
+
+
+                if(mArrayUrl.size()>0) {
+                    Glide.with(ParticularAdActivity.this).load(mArrayUrl.get(0)).into(gv);
+                }
+                if(mArrayUrl.size()>1){
+                    moreimg.setText((mArrayUrl.size()-1)+" more Images. View All");
+                    viewall.setVisibility(View.VISIBLE);
+                }
+
             }
 
 
@@ -144,7 +166,7 @@ public class ParticularAdActivity extends AppCompatActivity {
                     if((dataSnapshot1.getKey().equals("hostel")) )
                     {
                         hostel.setText(dataSnapshot1.getValue().toString());
-                        iloc.setText(dataSnapshot.getValue().toString());
+                        iloc.setText(dataSnapshot1.getValue().toString());
                     }
                 }
             }
@@ -153,13 +175,6 @@ public class ParticularAdActivity extends AppCompatActivity {
 
             }
         });
-
-        if(mArrayUrl.size()>0) {
-            Glide.with(ParticularAdActivity.this).load(mArrayUrl.get(0)).into(gv);
-        }
-        if(mArrayUrl.size()>1){
-            moreimg.setText((mArrayUrl.size()-1)+" more Images. View All");
-        }
 
         call.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -189,7 +204,20 @@ public class ParticularAdActivity extends AppCompatActivity {
             }
         });
 
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         if (requestCode == 101) {

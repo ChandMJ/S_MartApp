@@ -40,6 +40,82 @@ public class HomeFragment extends Fragment {
         HomeActivity activity = (HomeActivity) getActivity();
         num = activity.sendData();
 
+        book=view.findViewById(R.id.books);
+        sport=view.findViewById(R.id.sports);
+        electronic=view.findViewById(R.id.electronics);
+        vehicles=view.findViewById(R.id.vehicles);
+        snacks=view.findViewById(R.id.snacks);
+        misc=view.findViewById(R.id.misc);
+        music=view.findViewById(R.id.music);
+
+        book.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getActivity(),BrowsedCategoryActivity.class);
+                i.putExtra("Phone",num);
+                i.putExtra("category","Books");
+                startActivity(i);
+            }
+        });
+
+        sport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getActivity(),BrowsedCategoryActivity.class);
+                i.putExtra("Phone",num);
+                i.putExtra("category","Sports Equipment");
+                startActivity(i);
+            }
+        });
+        electronic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getActivity(),BrowsedCategoryActivity.class);
+                i.putExtra("Phone",num);
+                i.putExtra("category","Electronics");
+                startActivity(i);
+            }
+        });
+        vehicles.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getActivity(),BrowsedCategoryActivity.class);
+                i.putExtra("Phone",num);
+                i.putExtra("category","Vehicles");
+                startActivity(i);
+            }
+        });
+        snacks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i=new Intent(getActivity(),BrowsedCategoryActivity.class);
+                i.putExtra("Phone",num);
+                i.putExtra("category","Snacks");
+                startActivity(i);
+            }
+        });
+        misc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i=new Intent(getActivity(),BrowsedCategoryActivity.class);
+                i.putExtra("Phone",num);
+                i.putExtra("category","Miscellaneous");
+                startActivity(i);
+            }
+        });
+        music.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getActivity(),BrowsedCategoryActivity.class);
+                i.putExtra("Phone",num);
+                i.putExtra("category","Music Instruments");
+                startActivity(i);
+
+            }
+        });
+
         search=view.findViewById(R.id.search_bar);
         search.setOnClickListener(new View.OnClickListener() {
             @Override

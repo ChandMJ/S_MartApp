@@ -34,6 +34,75 @@ public class Browse_cat extends AppCompatActivity {
         misc=findViewById(R.id.misc);
         music=findViewById(R.id.music);
 
+
+        book.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(Browse_cat.this,BrowsedCategoryActivity.class);
+                i.putExtra("Phone",num);
+                i.putExtra("category","Books");
+                startActivity(i);
+            }
+        });
+
+        sport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(Browse_cat.this,BrowsedCategoryActivity.class);
+                i.putExtra("Phone",num);
+                i.putExtra("category","Sports Equipment");
+                startActivity(i);
+            }
+        });
+        electronic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(Browse_cat.this,BrowsedCategoryActivity.class);
+                i.putExtra("Phone",num);
+                i.putExtra("category","Electronics");
+                startActivity(i);
+            }
+        });
+        vehicles.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(Browse_cat.this,BrowsedCategoryActivity.class);
+                i.putExtra("Phone",num);
+                i.putExtra("category","Vehicles");
+                startActivity(i);
+            }
+        });
+        snacks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i=new Intent(Browse_cat.this,BrowsedCategoryActivity.class);
+                i.putExtra("Phone",num);
+                i.putExtra("category","Snacks");
+                startActivity(i);
+            }
+        });
+        misc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i=new Intent(Browse_cat.this,BrowsedCategoryActivity.class);
+                i.putExtra("Phone",num);
+                i.putExtra("category","Miscellaneous");
+                startActivity(i);
+            }
+        });
+        music.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(Browse_cat.this,BrowsedCategoryActivity.class);
+                i.putExtra("Phone",num);
+                i.putExtra("category","Music Instruments");
+                startActivity(i);
+
+            }
+        });
+
         back=findViewById(R.id.imageView);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +110,7 @@ public class Browse_cat extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
 
     }
 

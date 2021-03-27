@@ -3,6 +3,7 @@
     package="com.example.s_martapp">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -11,22 +12,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
+
+        <activity
+            android:name=".BrowsedCategoryActivity"
+            android:label="@string/title_activity_browsed_category">
+        </activity>
+        <activity
+            android:name=".ImagesGalleryActivity"
+            android:label="@string/title_activity_images_gallery"></activity>
+        <activity android:name=".ParticularAdActivity" />
         <activity
             android:name=".SearchhomeActivity"
-            android:label="@string/title_activity_searchhome"></activity>
+            android:label="@string/title_activity_searchhome" />
         <activity
             android:name=".Browse_cat"
-            android:label="@string/title_activity_browse_cat"></activity>
+            android:label="@string/title_activity_browse_cat" />
         <activity
             android:name=".ItemdetailsActivity"
-            android:label="@string/title_activity_itemdetails"></activity>
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:label="@string/title_activity_itemdetails" />
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">
@@ -43,7 +47,6 @@
         <activity android:name=".UpdatePassword" />
         <activity android:name=".ForgotPassworActivity" />
         <activity android:name=".ChangeCol" />
-
 
         <meta-data
             android:name="preloaded_fonts"

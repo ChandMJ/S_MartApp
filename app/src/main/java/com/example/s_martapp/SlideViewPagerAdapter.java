@@ -19,7 +19,7 @@ public class SlideViewPagerAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 5;
     }
 
     @Override
@@ -35,12 +35,12 @@ public class SlideViewPagerAdapter extends PagerAdapter {
         //LayoutInflater layoutInflater = LayoutInflater.from(context);
         View view = LayoutInflater.from(context).inflate(R.layout.fragment_onboard, container, false);
 
-        ImageView logo = view.findViewById(R.id.onboard_img1);
-        ImageView ind1 = view.findViewById(R.id.ind1);
-        ImageView ind2 = view.findViewById(R.id.ind2);
-        ImageView ind3 = view.findViewById(R.id.ind3);
-        ImageView ind4 = view.findViewById(R.id.ind4);
-        ImageView ind5 = view.findViewById(R.id.ind5);
+        ImageView logo=view.findViewById(R.id.onboard_img1);
+        ImageView ind1=view.findViewById(R.id.ind3);
+        ImageView ind2=view.findViewById(R.id.ind2);
+        ImageView ind3=view.findViewById(R.id.ind1);
+        ImageView ind4=view.findViewById(R.id.ind4);
+        ImageView ind5=view.findViewById(R.id.ind5);
 
 
         switch (position) {
@@ -71,6 +71,7 @@ public class SlideViewPagerAdapter extends PagerAdapter {
                 ind4.setImageResource(R.drawable.unselected);
                 ind5.setImageResource(R.drawable.unselected);
                 break;
+
             case 3:
                 logo.setImageResource(R.drawable.ic_group_4);
                 ind1.setImageResource(R.drawable.unselected);
@@ -78,8 +79,8 @@ public class SlideViewPagerAdapter extends PagerAdapter {
                 ind3.setImageResource(R.drawable.unselected);
                 ind4.setImageResource(R.drawable.selected);
                 ind5.setImageResource(R.drawable.unselected);
-
                 break;
+
             case 4:
                 logo.setImageResource(R.drawable.ic_group_5);
                 ind1.setImageResource(R.drawable.unselected);
@@ -88,8 +89,6 @@ public class SlideViewPagerAdapter extends PagerAdapter {
                 ind4.setImageResource(R.drawable.unselected);
                 ind5.setImageResource(R.drawable.selected);
                 break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + position);
         }
 
         container.addView(view);

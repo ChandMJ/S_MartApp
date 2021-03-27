@@ -8,12 +8,15 @@
 
     <ImageView
         android:id="@+id/onboard_img1"
-        android:layout_width="376dp"
-        android:layout_height="393dp"
+        android:layout_width="440dp"
+        android:layout_height="288dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintVertical_bias="0.009"
         app:srcCompat="@drawable/ic_background" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -27,18 +30,7 @@
         android:id="@+id/ind1"
         android:layout_width="10dp"
         android:layout_height="10dp"
-        app:layout_constraintEnd_toStartOf="@id/ind2"
-        app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/onboard_img1"
-        app:srcCompat="@drawable/selected" />
-
-    <ImageView
-        android:id="@+id/ind3"
-        android:layout_width="10dp"
-        android:layout_height="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintStart_toEndOf="@+id/guideline2"
+        android:layout_marginTop="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/onboard_img1"
@@ -48,28 +40,38 @@
         android:id="@+id/ind2"
         android:layout_width="10dp"
         android:layout_height="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="10dp"
-        app:srcCompat="@drawable/selected"
-        app:layout_constraintStart_toEndOf="@+id/ind1"
-        app:layout_constraintTop_toBottomOf="@+id/onboard_img1" />
+        app:layout_constraintEnd_toStartOf="@+id/ind1"
+        app:layout_constraintTop_toBottomOf="@+id/onboard_img1"
+        app:srcCompat="@drawable/selected" />
+
+    <ImageView
+        android:id="@+id/ind3"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/ind2"
+        app:layout_constraintTop_toBottomOf="@+id/onboard_img1"
+        app:srcCompat="@drawable/selected" />
 
     <ImageView
         android:id="@+id/ind4"
         android:layout_width="10dp"
         android:layout_height="10dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toEndOf="@+id/ind3"
-        app:layout_constraintEnd_toStartOf="@+id/ind5"
+        android:layout_marginTop="60dp"
+        app:layout_constraintStart_toEndOf="@+id/ind1"
         app:layout_constraintTop_toBottomOf="@+id/onboard_img1"
         app:srcCompat="@drawable/selected" />
 
     <ImageView
         android:id="@+id/ind5"
-        android:layout_width="11dp"
-        android:layout_height="7dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="60dp"
         app:layout_constraintStart_toEndOf="@+id/ind4"
         app:layout_constraintTop_toBottomOf="@+id/onboard_img1"
         app:srcCompat="@drawable/selected" />

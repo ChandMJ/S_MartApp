@@ -46,20 +46,48 @@ public class SearchhomeActivity extends AppCompatActivity {
             public void onItemClick(AdapterView parent, View view, int position, long id) {
                 String[] splitted = (""+list.get(position)).split(" ");
                 System.out.println(splitted[0]+"   ");
-//                if(splitted[2] .equals("Pouch") ){
-//                    Intent i=new Intent(SearchhomeActivity.this,MilkActivity.class);
-//                    i.putExtra("content","0");
-//                    i.putExtra("Phone",num);
-//                    startActivity(i);
-//                    finish();
-//                }
-//                if(splitted[2].equals("Tetra")){
-//                    Intent i=new Intent(SearchhomeActivity.this,MilkActivity.class);
-//                    i.putExtra("content","1");
-//                    i.putExtra("Phone",num);
-//                    startActivity(i);
-//                    finish();
-//                }
+                if(splitted[0] .equals("Books") ){
+                    Intent i=new Intent(SearchhomeActivity.this,BrowsedCategoryActivity.class);
+                    i.putExtra("category","Books");
+                    i.putExtra("Phone",num);
+                    startActivity(i);
+                    finish();
+                }
+                if(splitted[0].equals("Vehicles")){
+                    Intent i=new Intent(SearchhomeActivity.this,BrowsedCategoryActivity.class);
+                    i.putExtra("category","Vehicles");
+                    i.putExtra("Phone",num);
+                    startActivity(i);
+                    finish();
+                }
+                if(splitted[0] .equals("Snacks") ){
+                    Intent i=new Intent(SearchhomeActivity.this,BrowsedCategoryActivity.class);
+                    i.putExtra("category","Snacks");
+                    i.putExtra("Phone",num);
+                    startActivity(i);
+                    finish();
+                }
+                if(splitted[0].equals("Sports")){
+                    Intent i=new Intent(SearchhomeActivity.this,BrowsedCategoryActivity.class);
+                    i.putExtra("category","Sports Equipment");
+                    i.putExtra("Phone",num);
+                    startActivity(i);
+                    finish();
+                }
+                if(splitted[0] .equals("Electronics") ){
+                    Intent i=new Intent(SearchhomeActivity.this,BrowsedCategoryActivity.class);
+                    i.putExtra("category","Electronics");
+                    i.putExtra("Phone",num);
+                    startActivity(i);
+                    finish();
+                }
+                if(splitted[0].equals("Music")){
+                    Intent i=new Intent(SearchhomeActivity.this,BrowsedCategoryActivity.class);
+                    i.putExtra("category","Music");
+                    i.putExtra("Phone",num);
+                    startActivity(i);
+                    finish();
+                }
             }
         });
 

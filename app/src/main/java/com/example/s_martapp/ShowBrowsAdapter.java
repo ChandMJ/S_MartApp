@@ -52,6 +52,13 @@ public class ShowBrowsAdapter extends RecyclerView.Adapter<ShowBrowsAdapter.myVi
 
         System.out.println("user:"+user);
 
+        holder.fav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.fav.setImageResource(R.drawable.ic_baseline_favorite_24);
+            }
+        });
+
         holder.next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,7 +84,8 @@ public class ShowBrowsAdapter extends RecyclerView.Adapter<ShowBrowsAdapter.myVi
         TextView title, desc,price,postedby,postedon;
         ImageView image;
 
-        ImageView next;
+        int i=0;
+        ImageView next,fav;
 
         public myViewHolder(View itemView){
 
@@ -91,6 +99,7 @@ public class ShowBrowsAdapter extends RecyclerView.Adapter<ShowBrowsAdapter.myVi
             next=itemView.findViewById(R.id.nxt);
 
             image=itemView.findViewById(R.id.imageView4);
+            fav=itemView.findViewById(R.id.fav);
         }
     }
 

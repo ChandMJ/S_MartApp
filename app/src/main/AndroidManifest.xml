@@ -12,14 +12,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-
         <activity
-            android:name=".BrowsedCategoryActivity"
-            android:label="@string/title_activity_browsed_category">
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings">
         </activity>
         <activity
+            android:name=".NotificationActivity"
+            android:label="@string/title_activity_notification">
+        </activity>
+        <activity
+            android:name=".BrowsedCategoryActivity"
+            android:label="@string/title_activity_browsed_category" />
+        <activity
             android:name=".ImagesGalleryActivity"
-            android:label="@string/title_activity_images_gallery"></activity>
+            android:label="@string/title_activity_images_gallery" />
         <activity android:name=".ParticularAdActivity" />
         <activity
             android:name=".SearchhomeActivity"

@@ -65,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
                         viewp.setCurrentItem(1);
                     else if(viewp.getCurrentItem()==1)
                         viewp.setCurrentItem(2);
+                    else if(viewp.getCurrentItem()==2)
+                        viewp.setCurrentItem(3);
                     else
                         viewp.setCurrentItem(0);
                 }

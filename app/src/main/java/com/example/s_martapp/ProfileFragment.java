@@ -1,5 +1,6 @@
 package com.example.s_martapp;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,16 +10,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -27,7 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
+import java.util.Objects;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -59,6 +55,7 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         HomeActivity activity = (HomeActivity) getActivity();
+        assert activity != null;
         num = activity.sendData();
 
         sharedPreferences= getActivity().getSharedPreferences("login",MODE_PRIVATE);
@@ -81,36 +78,37 @@ public class ProfileFragment extends Fragment {
         ref=database.getReference("User").child(num);
 
         ref.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
                 {
                     System.out.println(dataSnapshot1.getKey());
-                    if(dataSnapshot1.getKey().equals("name"))
+                    if(Objects.equals(dataSnapshot1.getKey(), "name"))
                     {
-                        name.setText(dataSnapshot1.getValue().toString());
+                        name.setText(Objects.requireNonNull(dataSnapshot1.getValue()).toString());
                     }
-                    if(dataSnapshot1.getKey().equals("mobile"))
+                    if(Objects.equals(dataSnapshot1.getKey(), "mobile"))
                     {
-                        mob.setText(dataSnapshot1.getValue().toString());
+                        mob.setText(Objects.requireNonNull(dataSnapshot1.getValue()).toString());
                     }
                     if(dataSnapshot1.getKey().equals("email"))
                     {
-                        email.setText(dataSnapshot1.getValue().toString());
+                        email.setText(Objects.requireNonNull(dataSnapshot1.getValue()).toString());
                     }
                     if(dataSnapshot1.getKey().equals("password"))
                     {
-                        pass.setText(dataSnapshot1.getValue().toString());
+                        pass.setText(Objects.requireNonNull(dataSnapshot1.getValue()).toString());
                     }
                     if(dataSnapshot1.getKey().equals("semester")){
-                        sem.setText("Semester: "+(dataSnapshot1.getValue().toString()));
+                        sem.setText("Semester: "+(Objects.requireNonNull(dataSnapshot1.getValue()).toString()));
                     }
                     if(dataSnapshot1.getKey().equals("branch")){
-                        branch.setText("Branch: "+(dataSnapshot1.getValue().toString()));
+                        branch.setText("Branch: "+(Objects.requireNonNull(dataSnapshot1.getValue()).toString()));
                     }
                     if(dataSnapshot1.getKey().equals("hostel")){
-                        hostel.setText("Hostel: "+(dataSnapshot1.getValue().toString()));
+                        hostel.setText("Hostel: "+(Objects.requireNonNull(dataSnapshot1.getValue()).toString()));
                     }
                 }
             }
@@ -166,9 +164,9 @@ public class ProfileFragment extends Fragment {
         int id=item.getItemId();
         if(id== R.id.logout){
             FirebaseAuth.getInstance().signOut();
-            SharedPreferences.Editor editor= getActivity().getApplication().getSharedPreferences("login",MODE_PRIVATE).edit();
+            SharedPreferences.Editor editor= requireActivity().getApplication().getSharedPreferences("login",MODE_PRIVATE).edit();
             editor.putBoolean("Flag",false);
-            editor.commit();
+            editor.apply();
             Intent intent3=new Intent(getActivity(),MainActivity.class);
             startActivity(intent3);
             getActivity().finish();

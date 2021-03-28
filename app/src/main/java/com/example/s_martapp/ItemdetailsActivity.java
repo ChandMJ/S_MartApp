@@ -200,6 +200,7 @@ public class ItemdetailsActivity extends AppCompatActivity {
         hashMap.put("Imglink",url);
         databaseReference.push().setValue(hashMap);
         databaseReference1.push().setValue(hashMap);
+
     }
 
     public void UplaodImage(){

@@ -4,6 +4,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,16 +16,33 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 
-public class SplashActivity extends AppCompatActivity {
+public class
+SplashActivity extends AppCompatActivity {
 
+    //Variables
+    Animation topAnim, bottomAnim;
+    ImageView image;
+    TextView slogan;
     FirebaseUser firebaseUser;
 
     SharedPreferences sharedPreferences;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+
+        //Animations
+        topAnim = AnimationUtils.loadAnimation(this, R.anim.top_animation);
+        bottomAnim = AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
+
+        //hooks
+        image= findViewById(R.id.imageView3);
+        slogan= findViewById(R.id.textView7);
+
+        image.setAnimation(topAnim);
+        slogan.setAnimation(topAnim);
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -54,7 +75,7 @@ public class SplashActivity extends AppCompatActivity {
                     startActivity(i);
                     finish();
                 }
-            }, 800);
+            }, 1800);
         }
     }
 }

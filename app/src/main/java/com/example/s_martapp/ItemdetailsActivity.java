@@ -172,7 +172,7 @@ public class ItemdetailsActivity extends AppCompatActivity {
         final String currentdate = sdf.format(cal.getTime());
 
         DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("User").child(num).child("MyAd").child(category);
-        DatabaseReference databaseReference1=FirebaseDatabase.getInstance().getReference().child("Category").child(category);
+        DatabaseReference databaseReference1=FirebaseDatabase.getInstance().getReference().child("Category").child(category).child(num);
 
         if(free.isChecked()){
             databaseReference.child("Donate").setValue("Yes");
@@ -195,11 +195,12 @@ public class ItemdetailsActivity extends AppCompatActivity {
 
     private  void StoreLink(String url){
         DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("User").child(num).child("MyAd").child(category).child("Images");
-        DatabaseReference databaseReference1=FirebaseDatabase.getInstance().getReference().child("Category").child(category).child("Images");
+        DatabaseReference databaseReference1=FirebaseDatabase.getInstance().getReference().child("Category").child(category).child(num).child("Images");
         HashMap<String,String > hashMap=new HashMap<>();
         hashMap.put("Imglink",url);
         databaseReference.push().setValue(hashMap);
         databaseReference1.push().setValue(hashMap);
+
     }
 
     public void UplaodImage(){

@@ -88,60 +88,71 @@ public class BrowsedCategoryActivity extends AppCompatActivity {
             }
         });
 
-            ref1.child("Images").addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren()) {
-                        for (DataSnapshot dataSnapshot2 : dataSnapshot1.getChildren()) {
-                            System.out.println(dataSnapshot2.getValue().toString() + "     hi");
-                            mArrayUrl.add(dataSnapshot2.getValue().toString());
-                            break;
-                        }
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                }
-            });
-
 
         ref1.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 int i=0;
-                        for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren()){
-                            System.out.println("entered: "+dataSnapshot1.getKey().toString());
-                            if(dataSnapshot1.getKey().toString().equals("Date")){
-                                postedon.add(dataSnapshot1.getValue().toString());
+                for (DataSnapshot dataSnapshot2:dataSnapshot.getChildren()){
+                    for(DataSnapshot dataSnapshot1:dataSnapshot2.getChildren()) {
+                        System.out.println("entered: " + dataSnapshot1.getKey().toString());
+                        if (dataSnapshot1.getKey().toString().equals("Images")) {
+                            for(DataSnapshot dataSnapshot4:dataSnapshot1.getChildren()) {
+                                for (DataSnapshot dataSnapshot3 : dataSnapshot4.getChildren()) {
+                                    System.out.println(dataSnapshot3.getValue().toString() + "     hi");
+                                    mArrayUrl.add(dataSnapshot3.getValue().toString());
+                                    break;
+                                }
                             }
-                            if(dataSnapshot1.getKey().toString().equals("Price")){
-                                price.add(dataSnapshot1.getValue().toString());
-                            }
-                            if(dataSnapshot1.getKey().toString().equals("Title")){
-                                title.add(dataSnapshot1.getValue().toString());
-                            }
-                            if(dataSnapshot1.getKey().toString().equals("Desc")){
-                                desc.add(dataSnapshot1.getValue().toString());
-                            }
-                            if(dataSnapshot1.getKey().toString().equals("Username")){
-                                postedby.add(dataSnapshot1.getValue().toString());
-                            }
-                            if(dataSnapshot1.getKey().toString().equals("User")){
-                                sellernum=(dataSnapshot1.getValue().toString());
+                        }
+                    }
+
+                }
+                ref1.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        int i=0;
+                        for (DataSnapshot dataSnapshot2:dataSnapshot.getChildren()){
+                            for(DataSnapshot dataSnapshot1:dataSnapshot2.getChildren()) {
+                                System.out.println("entered: " + dataSnapshot1.getKey().toString());
+                                if (dataSnapshot1.getKey().toString().equals("Date")) {
+                                    postedon.add(dataSnapshot1.getValue().toString());
+                                }
+                                if (dataSnapshot1.getKey().toString().equals("Price")) {
+                                    price.add(dataSnapshot1.getValue().toString());
+                                }
+                                if (dataSnapshot1.getKey().toString().equals("Title")) {
+                                    title.add(dataSnapshot1.getValue().toString());
+                                }
+                                if (dataSnapshot1.getKey().toString().equals("Desc")) {
+                                    desc.add(dataSnapshot1.getValue().toString());
+                                }
+                                if (dataSnapshot1.getKey().toString().equals("Username")) {
+                                    postedby.add(dataSnapshot1.getValue().toString());
+                                }
+                                if (dataSnapshot1.getKey().toString().equals("User")) {
+                                    sellernum = (dataSnapshot1.getValue().toString());
+                                }
                             }
 
+                        }
+                        System.out.println(title+"  "+desc+"   "+"   "+price+"   "+postedby+"    "+postedon+"    "+mArrayUrl);
+                        for(i=0;i<title.size();i++){
+                            BrowsShow show=new BrowsShow(title.get(i),desc.get(i),price.get(i),postedby.get(i),postedon.get(i),mArrayUrl.get(i));
+                            shows.add(show);
+                        }
+                        showMySubsAdapter= new ShowBrowsAdapter(BrowsedCategoryActivity.this,shows,num,sellernum,category);
+                        Shows.setLayoutManager(new LinearLayoutManager(BrowsedCategoryActivity.this));
+                        Shows.setItemAnimator(new DefaultItemAnimator());
+                        Shows.setAdapter(showMySubsAdapter);
                     }
-                System.out.println(title+"  "+desc+"   "+"   "+price+"   "+postedby+"    "+postedon+"    "+mArrayUrl);
-                for(i=0;i<title.size();i++){
-                    BrowsShow show=new BrowsShow(title.get(i),desc.get(i),price.get(i),postedby.get(i),postedon.get(i),mArrayUrl.get(i));
-                    shows.add(show);
-                }
-                showMySubsAdapter= new ShowBrowsAdapter(BrowsedCategoryActivity.this,shows,num,sellernum,category);
-                Shows.setLayoutManager(new LinearLayoutManager(BrowsedCategoryActivity.this));
-                Shows.setItemAnimator(new DefaultItemAnimator());
-                Shows.setAdapter(showMySubsAdapter);
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
             }
 
             @Override
@@ -149,6 +160,25 @@ public class BrowsedCategoryActivity extends AppCompatActivity {
 
             }
         });
+
+
+//        ref1.child("Images").addListenerForSingleValueEvent(new ValueEventListener() {
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                    for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren()) {
+//                        for (DataSnapshot dataSnapshot2 : dataSnapshot1.getChildren()) {
+//                            System.out.println(dataSnapshot2.getValue().toString() + "     hi");
+//                            mArrayUrl.add(dataSnapshot2.getValue().toString());
+//                            break;
+//                        }
+//                    }
+//                }
+//
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//                }
+//            });
 
         back=findViewById(R.id.imageView);
         back.setOnClickListener(new View.OnClickListener() {

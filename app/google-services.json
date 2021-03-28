@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "899087315616",
+    "firebase_url": "https://smartapp-df2bf-default-rtdb.firebaseio.com",
+    "project_id": "smartapp-df2bf",
+    "storage_bucket": "smartapp-df2bf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:899087315616:android:3ace386fe206a63d398fc5",
+        "android_client_info": {
+          "package_name": "com.example.s_martapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "899087315616-7l4pm4f7997kdsrfu9tg38s7fli571p7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.s_martapp",
+            "certificate_hash": "402758c8c529b1f72ab99c6ca13893c2c6bfbd7d"
+          }
+        },
+        {
+          "client_id": "899087315616-l41n2r5ngc7b2n4iejcea3rk3tsftcc2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6PLPTfpfotBrirfhnbzQTsG2JFa0tIS8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "899087315616-l41n2r5ngc7b2n4iejcea3rk3tsftcc2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

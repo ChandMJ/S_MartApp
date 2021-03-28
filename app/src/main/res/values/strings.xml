@@ -1,3 +1,34 @@
 <resources>
-    <string name="app_name">S_MartApp</string>
+    <string name="app_name">S Mart</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="title_activity_home_navig">Home_navigActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_chats">Chats</string>
+    <string name="title_sell">Sell</string>
+    <string name="title_fav">Favourites</string>
+    <string name="title_profile">Profile</string>
+    <string name="app_subtitle">SimpleSearchView</string>
+    <string name="welcome">Welcome to Smart</string>
+    <string name="title_activity_itemdetails">ItemdetailsActivity</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="title_activity_browse_cat">Browse_cat</string>
+    <string name="title_activity_searchhome">SearchhomeActivity</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_images_gallery">ImagesGalleryActivity</string>
+    <string name="title_activity_browsed_category">BrowsedCategoryActivity</string>
+    <string name="title_activity_notification">NotificationActivity</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
 </resources>

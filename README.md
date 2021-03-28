@@ -15,3 +15,6 @@ Given time, we would like to add:
 -And of course, expand our app by adding other college communities to S Mart.
 
 We would love to see students use S Mart to make their lives easier, and make a buck while helping others save a buck!
+
+To run the app:
+        The apk of the app is attached.

@@ -75,7 +75,7 @@ SplashActivity extends AppCompatActivity {
                     startActivity(i);
                     finish();
                 }
-            }, 800);
+            }, 1800);
         }
     }
 }

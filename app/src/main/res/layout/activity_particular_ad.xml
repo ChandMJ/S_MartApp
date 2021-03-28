@@ -358,12 +358,45 @@
 
             </androidx.cardview.widget.CardView>
 
-            <Button
-                android:id="@+id/call"
+            <TextView
+                android:id="@+id/urad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/roboto_bold"
+                android:gravity="center"
+                android:textStyle="italic"
+                android:visibility="gone"
+                android:text="This Ad was posted by you! Click here to edit."
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/uraddelete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:visibility="gone"
+                android:clickable="true"
+                android:fontFamily="@font/roboto_bold"
+                android:gravity="center"
+                android:textStyle="italic"
+                android:text="Click here to delete the post!!!"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="30dp"
+                android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="20dp"
                 android:background="@color/dark_blue"
                 android:clickable="true"
                 android:fontFamily="@font/segoe_ui_sb"
@@ -371,6 +404,21 @@
                 android:text="Call"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/chat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/dark_blue"
+                android:clickable="true"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/segoe_ui_sb"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:text="Chat"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+            </LinearLayout>
 
         </LinearLayout>
 

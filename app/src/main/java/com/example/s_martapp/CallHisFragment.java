@@ -78,7 +78,7 @@ public class CallHisFragment extends Fragment {
                             if(dataSnapshot1.getKey().toString().equals("Caller Phone")){
                                 phone.add(dataSnapshot1.getValue().toString());
                             }
-                            if(dataSnapshot1.getKey().toString().equals("Caller sem")){
+                            if(dataSnapshot1.getKey().toString().equals("Caller Sem")){
                                 sem.add(dataSnapshot1.getValue().toString());
                             }
                             if(dataSnapshot1.getKey().toString().equals("Date")){
@@ -107,5 +107,51 @@ public class CallHisFragment extends Fragment {
         });
         shows=new ArrayList<CallHisShow>();
 
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+//        ref1.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                int i=0;
+//                if(dataSnapshot.child("Call History").exists()){
+//                    cv.setVisibility(View.INVISIBLE);
+//                    for(DataSnapshot vinesnapshot:dataSnapshot.child("Call History").getChildren()) {
+//                        for(DataSnapshot dataSnapshot1:vinesnapshot.getChildren()){
+//                            if(dataSnapshot1.getKey().toString().equals("Caller Name")){
+//                                name.add(dataSnapshot1.getValue().toString());
+//                            }
+//                            if(dataSnapshot1.getKey().toString().equals("Caller Phone")){
+//                                phone.add(dataSnapshot1.getValue().toString());
+//                            }
+//                            if(dataSnapshot1.getKey().toString().equals("Caller Sem")){
+//                                sem.add(dataSnapshot1.getValue().toString());
+//                            }
+//                            if(dataSnapshot1.getKey().toString().equals("Date")){
+//                                date.add(dataSnapshot1.getValue().toString());
+//                            }
+//                            if(dataSnapshot1.getKey().toString().equals("Product Title")){
+//                                title.add(dataSnapshot1.getValue().toString());
+//                            }
+//                        }
+//                    }
+//                }
+//                for(i=0;i<name.size();i++){
+//                    CallHisShow show=new CallHisShow(name.get(i),phone.get(i),sem.get(i),date.get(i),title.get(i));
+//                    shows.add(show);
+//                }
+//                showAdapter=new ShowCallHisAdapter(getContext(),shows,num);
+//                Shows.setLayoutManager(new LinearLayoutManager(getContext()));
+//                Shows.setItemAnimator(new DefaultItemAnimator());
+//                Shows.setAdapter(showAdapter);
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
     }
 }

@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -45,7 +46,8 @@ public class ParticularAdActivity extends AppCompatActivity {
     ArrayList<String> mArrayUrl = new ArrayList<String>();
 
     ImageView gv,viewall;
-    Button call;
+    Button call,chat;
+    TextView urad,uraddelete;
     TextView moreimg;
 
     ImageView back;
@@ -53,7 +55,7 @@ public class ParticularAdActivity extends AppCompatActivity {
     //firebase
     FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
     FirebaseDatabase database=FirebaseDatabase.getInstance();
-    DatabaseReference ref,ref1,databaseReference;
+    DatabaseReference ref,ref1,databaseReference,ref2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +83,9 @@ public class ParticularAdActivity extends AppCompatActivity {
         hostel=findViewById(R.id.hostel);
 
         call=findViewById(R.id.call);
+        chat=findViewById(R.id.chat);
+        urad=findViewById(R.id.urad);
+        uraddelete=findViewById(R.id.uraddelete);
         title=findViewById(R.id.toolbar);
 
         moreimg=findViewById(R.id.moreimg);
@@ -90,6 +95,9 @@ public class ParticularAdActivity extends AppCompatActivity {
 
         if(num.equals(user)){
             call.setVisibility(View.GONE);
+            chat.setVisibility(View.GONE);
+            urad.setVisibility(View.VISIBLE);
+            uraddelete.setVisibility(View.VISIBLE);
         }
 
         databaseReference=database.getReference("User").child(num);
@@ -98,6 +106,7 @@ public class ParticularAdActivity extends AppCompatActivity {
 
         ref=database.getReference("User").child(user).child("MyAd").child(category);
         ref1=database.getReference("User").child(user);
+        ref2=database.getReference("Category").child(category).child(user);
 
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -179,18 +188,31 @@ public class ParticularAdActivity extends AppCompatActivity {
         call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 Calendar cal = Calendar.getInstance();
                 final String currentdate = sdf.format(cal.getTime());
 
-                databaseReference.child("Call History").child(currentdate+" "+name.getText().toString()).child("Caller Name").setValue(name.getText().toString());
-                databaseReference.child("Call History").child(currentdate+" "+name.getText().toString()).child("Caller Phone").setValue(user);
-                databaseReference.child("Call History").child(currentdate+" "+name.getText().toString()).child("Caller Sem").setValue(sem.getText().toString());
-                databaseReference.child("Call History").child(currentdate+" "+name.getText().toString()).child("Date").setValue(currentdate);
-                databaseReference.child("Call History").child(currentdate+" "+name.getText().toString()).child("Product Title").setValue(pname.getText().toString());
+                databaseReference.child("Call History").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        int i=0;
+                        i= (int) dataSnapshot.getChildrenCount();
 
-                callPhoneNumber();
+                        databaseReference.child("Call History").child(String.valueOf(i+1)).child("Caller Name").setValue(name.getText().toString());
+                        databaseReference.child("Call History").child(String.valueOf(i+1)).child("Caller Phone").setValue(user);
+                        databaseReference.child("Call History").child(String.valueOf(i+1)).child("Caller Sem").setValue(sem.getText().toString());
+                        databaseReference.child("Call History").child(String.valueOf(i+1)).child("Date").setValue(currentdate);
+                        databaseReference.child("Call History").child(String.valueOf(i+1)).child("Product Title").setValue(pname.getText().toString());
+
+                        callPhoneNumber();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
             }
         });
 
@@ -201,6 +223,16 @@ public class ParticularAdActivity extends AppCompatActivity {
                 intent.putExtra("user",user);
                 intent.putExtra("category",category);
                 startActivity(intent);
+            }
+        });
+
+        uraddelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ref.removeValue();
+                ref2.removeValue();
+                Toast.makeText(ParticularAdActivity.this,"Your Ad is successfully deleted!",Toast.LENGTH_LONG).show();
+                onBackPressed();
             }
         });
 

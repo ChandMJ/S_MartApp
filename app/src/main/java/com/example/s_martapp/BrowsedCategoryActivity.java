@@ -29,6 +29,8 @@ public class BrowsedCategoryActivity extends AppCompatActivity {
     ImageView back;
     String num,category;
 
+    ConstraintLayout cv;
+
     Toolbar tool;
 
     String sellernum;
@@ -39,7 +41,7 @@ public class BrowsedCategoryActivity extends AppCompatActivity {
     //firebase
     FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
     FirebaseDatabase database=FirebaseDatabase.getInstance();
-    DatabaseReference ref1,ref2;
+    DatabaseReference ref1,ref2,ref;
 
 
     ArrayList<String> title = new ArrayList<String>();
@@ -59,6 +61,7 @@ public class BrowsedCategoryActivity extends AppCompatActivity {
         num=intent.getStringExtra("Phone");
         category=intent.getStringExtra("category");
 
+        cv=findViewById(R.id.cv1);
         tool=findViewById(R.id.toolbar);
 
         Shows=(RecyclerView)findViewById(R.id.shows);
@@ -70,6 +73,20 @@ public class BrowsedCategoryActivity extends AppCompatActivity {
         System.out.println("cat: "+category);
         tool.setTitle("        "+category);
 
+        ref=database.getReference("Category");
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.child(category).exists()){
+                    cv.setVisibility(View.INVISIBLE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
             ref1.child("Images").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override

@@ -17,7 +17,7 @@ public class HomeFragment extends Fragment {
 
     String num;
 
-    ImageView next;
+    ImageView next,notification,settings;
 
     LinearLayout search;
 
@@ -47,6 +47,15 @@ public class HomeFragment extends Fragment {
         snacks=view.findViewById(R.id.snacks);
         misc=view.findViewById(R.id.misc);
         music=view.findViewById(R.id.music);
+
+        notification=view.findViewById(R.id.notification);
+        notification.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                Intent intent = new Intent(getActivity(), NotificationActivity.class);
+                startActivity(intent);
+            }
+
+        });
 
         book.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,6 +140,16 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(getActivity(),Browse_cat.class);
+                i.putExtra("Phone",num);
+                startActivity(i);
+            }
+        });
+
+        settings=view.findViewById(R.id.settings);
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getActivity(),SettingsActivity.class);
                 i.putExtra("Phone",num);
                 startActivity(i);
             }

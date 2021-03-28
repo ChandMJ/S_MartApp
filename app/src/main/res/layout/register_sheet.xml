@@ -8,190 +8,190 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MainActivity">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout3"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/layout_whitebg"
+        android:paddingVertical="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/layout_whitebg"
-            android:paddingVertical="40dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
-            <LinearLayout
+
+
+            <TextView
+                android:id="@+id/textView17"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/segoe_ui_sb"
+                android:text="Welcome,"
+
+                android:textColor="@color/primary_text_color"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:fontFamily="@font/segoe_u_i_bold"
+                android:text="Create Account"
+                android:textColor="@color/primary_text_color"
+                android:textSize="30dp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/edittext_bg"
+                android:ems="10"
+                android:fontFamily="@font/roboto_regular"
+                android:hint="Name"
+                android:inputType="textPersonName"
+                android:paddingLeft="15dp"
+                android:paddingTop="14dp"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/edittext_bg"
+                android:ems="10"
+                android:fontFamily="@font/roboto_regular"
+                android:hint="Phone Number"
+                android:inputType="phone"
+                android:paddingLeft="15dp"
+                android:paddingTop="14dp"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+                app:layout_constraintStart_toStartOf="@+id/name"
+                app:layout_constraintTop_toBottomOf="@+id/name" />
 
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/edittext_bg"
+                android:ems="10"
+                android:fontFamily="@font/roboto_regular"
+                android:hint="Email"
+                android:inputType="text"
+                android:paddingLeft="15dp"
+                android:paddingTop="14dp"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/name"
+                app:layout_constraintTop_toBottomOf="@+id/name" />
 
-                <TextView
-                    android:id="@+id/textView17"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/segoe_ui_sb"
-                    android:text="Welcome,"
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/branch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/edittext_bg"
+                android:ems="10"
+                android:fontFamily="@font/roboto_regular"
+                android:hint="Branch"
+                android:inputType="text"
+                android:paddingLeft="15dp"
+                android:paddingTop="14dp"
+                android:textSize="16sp"/>
 
-                    android:textColor="@color/primary_text_color"
-                    android:textSize="20dp" />
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/sem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/edittext_bg"
+                android:ems="10"
+                android:fontFamily="@font/roboto_regular"
+                android:hint="Semester"
+                android:inputType="text"
+                android:paddingLeft="15dp"
+                android:paddingTop="14dp"
+                android:textSize="16sp"/>
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/hostel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/edittext_bg"
+                android:ems="10"
+                android:fontFamily="@font/roboto_regular"
+                android:hint="Hostel"
+                android:inputType="text"
+                android:paddingLeft="15dp"
+                android:paddingTop="14dp"
+                android:textSize="16sp"/>
 
-                <TextView
-                    android:id="@+id/textView14"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="30dp"
-                    android:fontFamily="@font/segoe_u_i_bold"
-                    android:text="Create Account"
-                    android:textColor="@color/primary_text_color"
-                    android:textSize="30dp" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passcont"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/phone"
+                app:layout_constraintTop_toBottomOf="@+id/phone"
+                app:passwordToggleEnabled="true"
+                app:hintEnabled="false"
+                android:layout_marginBottom="10dp">
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
                     android:background="@drawable/edittext_bg"
                     android:ems="10"
                     android:fontFamily="@font/roboto_regular"
-                    android:hint="Name"
-                    android:inputType="textPersonName"
+                    android:hint="Password"
+                    android:inputType="textPassword"
                     android:paddingLeft="15dp"
-                    android:paddingTop="14dp"
+                    android:paddingTop="8dp"
+                    android:paddingRight="15dp"
                     android:textSize="16sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/phone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/edittext_bg"
-                    android:ems="10"
-                    android:fontFamily="@font/roboto_regular"
-                    android:hint="Phone Number"
-                    android:inputType="phone"
-                    android:paddingLeft="15dp"
-                    android:paddingTop="14dp"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/name"
-                    app:layout_constraintTop_toBottomOf="@+id/name" />
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/edittext_bg"
-                    android:ems="10"
-                    android:fontFamily="@font/roboto_regular"
-                    android:hint="Email"
-                    android:inputType="text"
-                    android:paddingLeft="15dp"
-                    android:paddingTop="14dp"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/name"
-                    app:layout_constraintTop_toBottomOf="@+id/name" />
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/branch"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/edittext_bg"
-                    android:ems="10"
-                    android:fontFamily="@font/roboto_regular"
-                    android:hint="Branch"
-                    android:inputType="text"
-                    android:paddingLeft="15dp"
-                    android:paddingTop="14dp"
-                    android:textSize="16sp" />
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/sem"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/edittext_bg"
-                    android:ems="10"
-                    android:fontFamily="@font/roboto_regular"
-                    android:hint="Semester"
-                    android:inputType="text"
-                    android:paddingLeft="15dp"
-                    android:paddingTop="14dp"
-                    android:textSize="16sp" />
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/hostel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/edittext_bg"
-                    android:ems="10"
-                    android:fontFamily="@font/roboto_regular"
-                    android:hint="Hostel"
-                    android:inputType="text"
-                    android:paddingLeft="15dp"
-                    android:paddingTop="14dp"
-                    android:textSize="16sp" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/passcont"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/phone"
-                    app:layout_constraintTop_toBottomOf="@+id/phone"
-                    app:passwordToggleEnabled="true"
-                    app:hintEnabled="false"
-                    android:layout_marginBottom="10dp">
-
-                    <androidx.appcompat.widget.AppCompatEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/edittext_bg"
-                        android:ems="10"
-                        android:fontFamily="@font/roboto_regular"
-                        android:hint="Password"
-                        android:inputType="textPassword"
-                        android:paddingLeft="15dp"
-                        android:paddingTop="8dp"
-                        android:paddingRight="15dp"
-                        android:textSize="16sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/phone"
-                        app:layout_constraintTop_toBottomOf="@+id/phone" />
-                </com.google.android.material.textfield.TextInputLayout>
+                    app:layout_constraintTop_toBottomOf="@+id/phone" />
+            </com.google.android.material.textfield.TextInputLayout>
 
 
-                <Button
-                    android:id="@+id/sign_up_wel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/sign_in_black"
-                    android:clickable="true"
-                    android:fontFamily="@font/segoe_ui_sb"
-                    android:foreground="?attr/selectableItemBackgroundBorderless"
-                    android:text="CREATE A NEW ACCOUNT"
-                    android:textColor="@color/white"
-                    android:textSize="14sp" />
+            <Button
+                android:id="@+id/sign_up_wel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/sign_in_black"
+                android:clickable="true"
+                android:fontFamily="@font/segoe_ui_sb"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:text="CREATE A NEW ACCOUNT"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
 
 
-            </LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
@@ -25,8 +26,8 @@ public class SearchhomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_searchhome);
 
-        Intent intent = getIntent();
-        num = intent.getStringExtra("Phone");
+        Intent intent=getIntent();
+        num=intent.getStringExtra("Phone");
         searchView = findViewById(R.id.searchView);
 
         listView = findViewById(R.id.listView);
@@ -38,27 +39,55 @@ public class SearchhomeActivity extends AppCompatActivity {
         list.add("Music Instruments");
         list.add("Electronics");
         list.add("Sports Equipment");
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,list);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View view, int position, long id) {
-                String[] splitted = ("" + list.get(position)).split(" ");
-                System.out.println(splitted[0] + "   ");
-//                if(splitted[2] .equals("Pouch") ){
-//                    Intent i=new Intent(SearchhomeActivity.this,MilkActivity.class);
-//                    i.putExtra("content","0");
-//                    i.putExtra("Phone",num);
-//                    startActivity(i);
-//                    finish();
-//                }
-//                if(splitted[2].equals("Tetra")){
-//                    Intent i=new Intent(SearchhomeActivity.this,MilkActivity.class);
-//                    i.putExtra("content","1");
-//                    i.putExtra("Phone",num);
-//                    startActivity(i);
-//                    finish();
-//                }
+                String[] splitted = (""+list.get(position)).split(" ");
+                System.out.println(splitted[0]+"   ");
+                if(splitted[0] .equals("Books") ){
+                    Intent i=new Intent(SearchhomeActivity.this,BrowsedCategoryActivity.class);
+                    i.putExtra("category","Books");
+                    i.putExtra("Phone",num);
+                    startActivity(i);
+                    finish();
+                }
+                if(splitted[0].equals("Vehicles")){
+                    Intent i=new Intent(SearchhomeActivity.this,BrowsedCategoryActivity.class);
+                    i.putExtra("category","Vehicles");
+                    i.putExtra("Phone",num);
+                    startActivity(i);
+                    finish();
+                }
+                if(splitted[0] .equals("Snacks") ){
+                    Intent i=new Intent(SearchhomeActivity.this,BrowsedCategoryActivity.class);
+                    i.putExtra("category","Snacks");
+                    i.putExtra("Phone",num);
+                    startActivity(i);
+                    finish();
+                }
+                if(splitted[0].equals("Sports")){
+                    Intent i=new Intent(SearchhomeActivity.this,BrowsedCategoryActivity.class);
+                    i.putExtra("category","Sports Equipment");
+                    i.putExtra("Phone",num);
+                    startActivity(i);
+                    finish();
+                }
+                if(splitted[0] .equals("Electronics") ){
+                    Intent i=new Intent(SearchhomeActivity.this,BrowsedCategoryActivity.class);
+                    i.putExtra("category","Electronics");
+                    i.putExtra("Phone",num);
+                    startActivity(i);
+                    finish();
+                }
+                if(splitted[0].equals("Music")){
+                    Intent i=new Intent(SearchhomeActivity.this,BrowsedCategoryActivity.class);
+                    i.putExtra("category","Music");
+                    i.putExtra("Phone",num);
+                    startActivity(i);
+                    finish();
+                }
             }
         });
 
@@ -66,14 +95,13 @@ public class SearchhomeActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextSubmit(String query) {
 
-                if (list.contains(query)) {
+                if(list.contains(query)){
                     adapter.getFilter().filter(query);
-                } else {
+                }else{
 
                 }
                 return false;
             }
-
             @Override
             public boolean onQueryTextChange(String newText) {
                 listView.setVisibility(View.VISIBLE);

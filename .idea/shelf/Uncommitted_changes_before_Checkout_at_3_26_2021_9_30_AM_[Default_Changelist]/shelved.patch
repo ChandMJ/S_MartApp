@@ -1,0 +1,155 @@
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"GradleMigrationSettings\" migrationVersion=\"1\" />\r\n  <component name=\"GradleSettings\">\r\n    <option name=\"linkedExternalProjectsSettings\">\r\n      <GradleProjectSettings>\r\n        <option name=\"testRunner\" value=\"PLATFORM\" />\r\n        <option name=\"distributionType\" value=\"DEFAULT_WRAPPED\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"gradleJvm\" value=\"1.8\" />\r\n        <option name=\"modules\">\r\n          <set>\r\n            <option value=\"$PROJECT_DIR$\" />\r\n            <option value=\"$PROJECT_DIR$/app\" />\r\n          </set>\r\n        </option>\r\n        <option name=\"resolveModulePerSourceSet\" value=\"false\" />\r\n      </GradleProjectSettings>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/gradle.xml	(revision 472f7e349ca7cbdd8af6c37e3fa5928541f1fbda)
++++ .idea/gradle.xml	(date 1616735991786)
+@@ -15,6 +15,7 @@
+           </set>
+         </option>
+         <option name="resolveModulePerSourceSet" value="false" />
++        <option name="useQualifiedModuleNames" value="true" />
+       </GradleProjectSettings>
+     </option>
+   </component>
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_1_7\" default=\"true\" project-jdk-name=\"1.8\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(revision 472f7e349ca7cbdd8af6c37e3fa5928541f1fbda)
++++ .idea/misc.xml	(date 1616735991767)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/build/classes" />
+   </component>
+   <component name="ProjectType">
+Index: app/src/main/java/com/example/s_martapp/Ad.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/s_martapp/Ad.java	(date 1616693894125)
++++ app/src/main/java/com/example/s_martapp/Ad.java	(date 1616693894125)
+@@ -0,0 +1,14 @@
++package com.example.s_martapp;
++
++import androidx.appcompat.app.AppCompatActivity;
++
++import android.os.Bundle;
++
++public class Ad extends AppCompatActivity {
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_ad);
++    }
++}
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_ad.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_ad.xml	(date 1616733716102)
++++ app/src/main/res/layout/activity_ad.xml	(date 1616733716102)
+@@ -0,0 +1,89 @@
++
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".Ad">
++
++    <androidx.appcompat.widget.Toolbar
++        android:id="@+id/toolbar2"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:background="@color/dark_blue"
++        app:popupTheme="@style/AppTheme.PopupOverlay"
++        app:title="      Place Your Ad"
++        app:titleTextColor="@color/white"
++        tools:layout_editor_absoluteX="2dp"
++        tools:layout_editor_absoluteY="4dp" />
++
++    <androidx.constraintlayout.widget.ConstraintLayout
++        android:id="@+id/photos"
++        android:layout_width="422dp"
++        android:layout_height="226dp"
++        tools:layout_editor_absoluteX="-5dp"
++        tools:layout_editor_absoluteY="0dp">
++
++        <ImageView
++            android:id="@+id/imageView4"
++            android:layout_width="42dp"
++            android:layout_height="37dp"
++            app:srcCompat="@drawable/ic_baseline_arrow_back_24"
++            tools:layout_editor_absoluteX="3dp"
++            tools:layout_editor_absoluteY="16dp" />
++    </androidx.constraintlayout.widget.ConstraintLayout>
++
++    <androidx.constraintlayout.widget.ConstraintLayout
++        android:id="@+id/constraintLayout"
++        android:layout_width="413dp"
++        android:layout_height="328dp"
++        tools:layout_editor_absoluteX="-2dp"
++        tools:layout_editor_absoluteY="326dp">
++
++        <LinearLayout
++            android:layout_width="411dp"
++            android:layout_height="430dp"
++            android:orientation="vertical"
++            tools:layout_editor_absoluteX="5dp"
++            tools:layout_editor_absoluteY="-98dp">
++
++            <LinearLayout
++                android:id="@+id/prod_det"
++                android:layout_width="match_parent"
++                android:layout_height="104dp"
++                android:orientation="vertical"></LinearLayout>
++
++            <LinearLayout
++                android:id="@+id/desc"
++                android:layout_width="match_parent"
++                android:layout_height="111dp"
++                android:orientation="vertical">
++
++            </LinearLayout>
++
++            <LinearLayout
++                android:id="@+id/seller_det"
++                android:layout_width="match_parent"
++                android:layout_height="124dp"
++                android:orientation="vertical">
++
++            </LinearLayout>
++
++            <LinearLayout
++                android:layout_width="match_parent"
++                android:layout_height="97dp"
++                android:orientation="vertical">
++
++                <Button
++                    android:id="@+id/button5"
++                    android:layout_width="match_parent"
++                    android:layout_height="match_parent"
++                    android:layout_weight="1"
++                    android:text="Call" />
++            </LinearLayout>
++
++        </LinearLayout>
++    </androidx.constraintlayout.widget.ConstraintLayout>
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
